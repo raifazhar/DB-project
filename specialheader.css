@@ -1,0 +1,116 @@
+*,*,*::after,*::before
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header
+{
+   width:100vw;
+   display: flex;
+   background-color: rgba(52, 49, 46, 0.322);
+
+}
+.rightmenu
+{
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.rightmenu ul
+{
+    padding: 2vw;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2vw;
+}
+.rightmenu ul a
+{
+    padding: 2vh 2vw;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 300;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+.hamburgermenu
+{
+    visibility: hidden;
+    width: 20%;
+    height: 100%;
+    position:absolute;
+    background-color:rgba(52, 49, 46, 0.322);
+}
+.hamburgermenu ul
+{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}
+.hamburgermenu ul li 
+{
+    text-align:left;
+    text-indent: 10%;
+    width: 100%;
+}
+.hamburgermenu ul li a
+{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+.logo
+{
+    height: 70px;
+}
+.hamburgermenu-button{
+    
+    background: none;
+    border: none;
+    padding: 10px;    
+    width: 5vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.hamburgermenu-bar{
+    position: relative;
+    width: 52%;
+    height: 1.3px;
+    background-color: white;
+    border-radius: 2px;
+}
+.hamburgermenu-bar::after,.hamburgermenu-bar::before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height:inherit;
+    background-color:inherit;
+    border-radius: 2px;
+    right: 0vw;
+}
+.hamburgermenu-bar::after
+{
+    top: 1.35vh;
+}
+.hamburgermenu-bar::before
+{
+    top: -1.35vh;
+}
+
+

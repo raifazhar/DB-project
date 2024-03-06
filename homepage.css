@@ -1,0 +1,8 @@
+body
+{
+    background-image: url(./backgroundmountain.avif),url(./backgroundfog.jpg);
+    background-repeat: no-repeat,no-repeat;
+    background-size: 100%,cover;
+    background-position: 0px -10vh;
+    background-blend-mode:exclusion;
+}
