@@ -6,3 +6,14 @@ body
     background-position: 0px -10vh;
     background-blend-mode:exclusion;
 }
+#Para-container
+{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#Para-container p
+{
+    width: 50%;
+}
