@@ -43,10 +43,12 @@ header
     border-radius: 10px;
 }
 .hamburgermenu .fa{
+    position: absolute;
+    width: 100%;
     text-align: right;
     display: block;
     color: #fff;
-    margin: 10px;
+    margin-top: 10px;
     font-size: 30px;
     cursor: pointer;
 }
@@ -55,7 +57,7 @@ header
     z-index: 3;
     width: 160px;
     left: -160px;
-    height: 99.5%;
+    height: 100%;
     position:absolute;
     background-color:rgba(52, 49, 46, 1);
     transition: 0.5s;
