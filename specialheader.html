@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href= "specialheader.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="specialheader.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     <title>Travel</title>
-</head>
+  </head>
 
-<body>
-    
-   <header>
-    <button class="hamburgermenu-button" onclick="" >
-         <div class="hamburgermenu-bar" ></div>
-    </button>
-    <nav class="hamburgermenu">
+  <body>
+    <header>
+      <button class="hamburgermenu-button" onclick="showMenu()">
+        <div class="hamburgermenu-bar"></div>
+      </button>
+      <nav class="hamburgermenu">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
         <ul>
-            <li>
-                <a href="#">profile</a>
-            </li>
-            <li>
-                <a href="#">chat</a>
-            </li>
-            <li>
-                <a href="#">places</a>
-            </li>
-            <li>
-                <a href="#">history</a>
-            </li>
+          <li>
+            <a href="#">profile</a>
+          </li>
+          <li>
+            <a href="#">chat</a>
+          </li>
+          <li>
+            <a href="#">places</a>
+          </li>
+          <li>
+            <a href="#">history</a>
+          </li>
         </ul>
-    </nav>
-    <nav class="rightmenu">
-        <img src="/logo.png" alt="Travelto" class="logo">
+      </nav>
+      <nav class="rightmenu">
+        <img src="/logo.png" alt="Travelto" class="logo" />
+        <h1 class="logotext">TravelTopia</h1>
         <ul>
-            <li>
-                <a href="#">login</a>
-            </li>
-            <li>
-                <a href="#" style="background-color: #00c0e5;">SignUp</a>
-            </li>
+          <li>
+            <a href="#" style="background-color: lightblue">login</a>
+          </li>
+          <li>
+            <a href="#" style="background-color: #00c0e5">SignUp</a>
+          </li>
         </ul>
-        
-    </nav>
-  
-   </header> 
-</body>
+      </nav>
+    </header>
+    <div class="intro">
+      <h1>The Travel Agency of your dreams.</h1>
+      <p>Explore the world with us. Real and Fictonal (IDK this is a test)</p>
+      <button>EXPLORE</button>
+    </div>
+    <script>
+      function showMenu() {
+        document.querySelector(".hamburgermenu").style.left = "0px";
+      }
+      function hideMenu() {
+        document.querySelector(".hamburgermenu").style.left = "-160px";
+      }
+    </script>
+  </body>
 </html>
