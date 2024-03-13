@@ -12,8 +12,24 @@ header
    min-height: 10vh;
    display: flex;
    background-color: rgba(52, 49, 46, 0.322);
-
+   animation-name: heading;
+   animation-duration: 1s;
+   animation-timing-function:ease-out;
 }
+@keyframes heading {
+    from{
+        transform: translateY(-15vh);
+    }
+    50%
+    {
+        transform: translateY(2vh)
+    }
+    to{
+        transform: translateY(0vh);
+    }
+}
+
+
 .rightmenu
 {
     width: 100%;
@@ -44,19 +60,19 @@ header
 }
 .hamburgermenu .fa{
     position: absolute;
-    width: 100%;
+    width: 90%;
     text-align: right;
     display: block;
     color: #fff;
-    margin-top: 10px;
-    font-size: 30px;
+    margin-top: 1.5vh;
+    font-size: 3vw;
     cursor: pointer;
 }
 .hamburgermenu
 {
     z-index: 3;
-    width: 160px;
-    left: -160px;
+    width: 15vw;
+    left: -15vw;
     height: 100%;
     position:absolute;
     background-color:rgba(52, 49, 46, 1);
@@ -81,7 +97,7 @@ header
 {
     text-decoration: none;
     color: white;
-    font-size: 24px;
+    font-size: 2vw;
     text-transform: uppercase;
     font-weight: 300;
 }
@@ -90,15 +106,17 @@ header
     height: 70px;
 }
 .logotext{
-    display: flex;
-    text-align: left;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 300px;
+    text-align: center;
     color: white;
 }
 .hamburgermenu-button{
     background: none;
     border: none;
     padding: 10px;    
-    width: 80px;
+    width: 10%;
     height: auto;
     display: flex;
     justify-content: center;
