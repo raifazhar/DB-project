@@ -8,7 +8,9 @@ body
     animation-duration: 25s;
     animation-timing-function:linear;
     animation-iteration-count:infinite;
-    background-attachment: scroll;
+    animation-direction: alternate;
+    background-attachment:fixed;
+    overflow-x: hidden;
 }
 
 @keyframes fog{
