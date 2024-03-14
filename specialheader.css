@@ -111,6 +111,7 @@ header
     font-weight: 300px;
     text-align: center;
     color: white;
+    mix-blend-mode:difference;
 }
 .hamburgermenu-button{
     background: none;

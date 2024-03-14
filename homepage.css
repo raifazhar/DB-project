@@ -1,8 +1,17 @@
 body
 {
-    background-image: url(./backgroundmountain.avif);
-    background-repeat: no-repeat,no-repeat;
-    background-size: auto;
-    background-position: 50% 0%;
-    background-blend-mode:exclusion;
+    background: url(./backgroundmountain.avif),url(/backgroundfog.jpg);
+    background-repeat: no-repeat,repeat-x;
+    background-size: cover,cover;
+    background-blend-mode:lighten;
+    animation-name: fog;
+    animation-duration: 25s;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    background-attachment: scroll;
 }
+
+@keyframes fog{
+    0%{background-position:0% top,0%;background-size: cover,200%;}
+    100%{background-position:0% top,100%;background-size: cover,200%;}
+ }
