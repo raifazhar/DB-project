@@ -24,6 +24,19 @@
     bottom: -2vh;
 
 }
+.parallax h1{
+    top:5vh;
+    position: absolute;
+    color: white;
+    font-size: 12em;
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 900;
+    text-shadow: 0 5px 10px rgba(0,0,0,1);
+    pointer-events: auto;
+    z-index: 1;
+    user-select: none;
+}
 .parallax img{
     position: absolute;
 }
