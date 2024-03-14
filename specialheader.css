@@ -20,10 +20,6 @@ header
     from{
         transform: translateY(-15vh);
     }
-    50%
-    {
-        transform: translateY(2vh)
-    }
     to{
         transform: translateY(0vh);
     }
@@ -110,8 +106,7 @@ header
     text-transform: uppercase;
     font-weight: 300px;
     text-align: center;
-    color: white;
-    mix-blend-mode:difference;
+    color:white;
 }
 .hamburgermenu-button{
     background: none;
