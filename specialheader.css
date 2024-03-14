@@ -8,7 +8,7 @@ body{
 }
 header
 {
-   width:100vw;
+   width:auto;
    min-height: 10vh;
    display: flex;
    background-color: rgba(52, 49, 46, 0.322);
@@ -70,7 +70,7 @@ header
 }
 .hamburgermenu
 {
-    z-index: 3;
+    z-index: 50;
     width: 15vw;
     left: -15vw;
     height: 100%;
@@ -151,40 +151,4 @@ header
 }
 
 
-.intro{
-    width: 90%;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 30px;
-    position: absolute;
-    padding: auto;
-    top: 50%;
-    left: 50%;
-    width: fit-content;
-    padding: 0% 5%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-}
-.intro p{
-    margin: 10px 0 40px;
-    font-size: 14px;
-    color: #fff;
-}
-.intro button{
-    margin: auto;
-    margin-bottom: 10px;
-    display: flex;
-    font-family: 'Poppins',sans-serif;
-    color: black;
-    border: 2px solid black;
-    padding: 12px 24px;
-    font-size: 13px;
-    border-radius: 10px;
-    background-color: white;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.intro button:hover{
-    background-color: grey;
-}
 

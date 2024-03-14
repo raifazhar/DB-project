@@ -2,28 +2,27 @@
     margin:0;
     padding: 0;
 }
-header{
+.parallax{
     display: flex;
-    size: fit-content;
-    justify-content: center;
-    background-color: gray;
+    height: 100vh;
+    justify-content: center;    
+    position: relative;
+    pointer-events: none;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+.img1{
+    height: 110vh;
+    top: -2vh;
+}
+.img4{
+    height:102vh;
+}
+.img5{
+    height: 100vh;
+    bottom: -2vh;
 
 }
-header p
-{
-    text-align: center;
-    width: 100%;
-}
-.parallax{
-    display:flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100wh;
-    position: relative;
-}
 .parallax img{
-    position:absolute;
-    height: 100vh;
-    width: 100wh;
-    transform: translateX(0%);
+    position: absolute;
 }
