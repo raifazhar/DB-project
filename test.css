@@ -10,6 +10,7 @@
     pointer-events: none;
     overflow-x:hidden;
     overflow-y:hidden;
+    transition: 0.45s cubic-bezier(.22,.58,.4,1.02);
 }
 .img1{
     height: 110vh;
