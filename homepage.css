@@ -18,24 +18,36 @@ body
     100%{background-position:0% top,100%;background-size: cover,200%;}
  }
 
- .intro{
-    width: 90%;
+ .introcontainer
+ {
+    position: absolute;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    width: 100vw;
+    height:100vh;
+    
+ }
+.intro{
+    position: relative;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 30px;
-    position: absolute;
-    padding: auto;
-    top: 50%;
-    left: 50%;
-    width: fit-content;
+    top: 0;
+    width: 50%;
     padding: 0% 5%;
-    transform: translate(-50%,-50%);
+}
+.intro h1
+{
+    font-weight: bolder;
     text-align: center;
 }
 .intro p{
     margin: 10px 0 40px;
     font-size: 14px;
     color: #fff;
+    text-align: justify;
 }
 .intro button{
     margin: auto;
