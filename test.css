@@ -25,8 +25,9 @@
 
 }
 .parallax h1{
-    top:5vh;
+    top:6vh;
     position: absolute;
+    line-height: 30vh;
     color: white;
     font-size: 12em;
     text-align: center;
@@ -34,7 +35,6 @@
     font-weight: 900;
     text-shadow: 0 5px 10px rgba(0,0,0,1);
     pointer-events: auto;
-    z-index: 1;
     user-select: none;
 }
 .parallax img{
