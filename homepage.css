@@ -1,6 +1,6 @@
 body
 {
-    background: url(./backgroundmountain.avif),url(/backgroundfog.jpg);
+    background: url(./assets/images/backgroundmountain.avif),url(./assets/images/backgroundfog.jpg);
     background-repeat: no-repeat,repeat-x;
     background-size: cover,cover;
     background-blend-mode:lighten;
