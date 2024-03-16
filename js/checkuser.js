@@ -1,7 +1,7 @@
 let guestitems = document.querySelectorAll(".guest");
 let useritems = document.querySelectorAll(".user");
-let url = "http://localhost:3000";
-function checkUser() {
+let url = "https://db-project-api.vercel.app";
+async function checkUser() {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function () {
     if (xmlHttp.readyState == XMLHttpRequest.DONE) {
@@ -35,6 +35,6 @@ function checkUser() {
     email: localStorage.getItem("email"),
     usertype: localStorage.getItem("type"),
   };
-  xmlHttp.send(JSON.stringify(user));
+  await xmlHttp.send(JSON.stringify(user));
 }
 window.onload = checkUser();
