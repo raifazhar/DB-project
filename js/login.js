@@ -20,7 +20,7 @@ function validateLoginForm() {
       if (xmlHttp.status != 200) {
         if (jsonResponse["status"] == "failed") {
           document.getElementById("error").style.display = "block";
-          document.getElementById("error").textContent = "Invalid Credentials";
+          document.getElementById("error").textContent = jsonResponse["message"];
         }
       } else if (xmlHttp.status == 200) {
         localStorage.setItem("email", jsonResponse["user"]["email"]);

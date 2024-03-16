@@ -1,39 +1,35 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title> Login </title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial scale = 1.0">
-        <link rel="stylesheet" href="Styling.css" type="text/css">
-
-    </head>
-
-    <body>
-        <div id = "Parallax">
-            <img class = "Object" id = "Sky" src="LoginBGSky.png" data-value="0.005">
-            <img class = "Object" id = "Mountain" src="LoginBGMountain.png" data-value="0.01">
-            <img class = "Object" id = "Water" src="LoginBGWater.png" data-value="0.015">
-
-            <div class="Object" id = "ParallaxDiv">
-                    <h3 >Email</h3>
-
-                    <!-- add id to this input for Email -->
-                    <input type="text" class = "Details" placeholder="Someone@email.com">
-                    <h3>Password</h3>
-                    
-                    <!-- add id to this input for Password -->
-                    <input type="text" class = "Details">
-
-                    <!-- sign in button -->
-                    <button class = "Details">Sign In</button>
-
-                    <p class = "Details">Dont have an account?</p>
-                    
-                    <!-- a link to sign up page  -->
-                    <p class = "Details">Sign Up</p>
-            </div>
-        </div>
-
-    </body>
-    <script src = "ParallaxEffect.js"></script>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial scale = 1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="Styling.css" type="text/css" />
+  </head>
+  <body>
+    <div class="parallax">
+      <img class="parallax img1" style="z-index: 2" src="LoginBGSky.png" data-speedx="0.22" data-speedy="0.13" />
+      <img class="parallax img2" style="z-index: 3" src="LoginBGMountain.png" data-speedx="0.19" data-speedy="0.10" />
+      <img class="parallax img3" style="z-index: 4" src="LoginBGWater.png" data-speedx="0.15" data-speedy="0.07" />
+    </div>
+    <div class="inputformdiv" style="z-index: 5">
+      <form name="inputform" class="inputform" onsubmit="return false">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required />
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <br />
+        <p class="error" id="error">Invalid Credentials!</p>
+        <button id="Login" onclick="validateLoginForm()">Login</button>
+        <div class="loader" id="loader"></div>
+      </form>
+    </div>
+  </body>
+  <script src="../js/animation.js"></script>
+  <script src="../js/login.js"></script>
 </html>
