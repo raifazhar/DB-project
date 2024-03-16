@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href= "specialheader.css">
-    <title>Travel</title>
-</head>
-
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="specialheader.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
     
-   <header>
-    <button class="hamburgermenu-button" onclick="" >
-         <div class="hamburgermenu-bar" ></div>
-    </button>
-    <nav class="hamburgermenu">
+    <title>Travel</title>
+  </head>
+  <body>
+    <header>
+      <button class="hamburgermenu-button" onclick="showMenu()">
+        <div class="hamburgermenu-bar"></div>
+      </button>
+      <nav class="hamburgermenu">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
         <ul>
-            <li>
-                <a href="#">profile</a>
-            </li>
-            <li>
-                <a href="#">chat</a>
-            </li>
-            <li>
-                <a href="#">places</a>
-            </li>
-            <li>
-                <a href="#">history</a>
-            </li>
+          <li>
+            <a href="#">profile</a>
+          </li>
+          <li>
+            <a href="#">chat</a>
+          </li>
+          <li>
+            <a href="#">places</a>
+          </li>
+          <li>
+            <a href="#">history</a>
+          </li>
         </ul>
-    </nav>
-    <nav class="rightmenu">
-        <img src="/logo.png" alt="Travelto" class="logo">
-        <ul>
-            <li>
-                <a href="#">login</a>
-            </li>
-            <li>
-                <a href="#" style="background-color: #00c0e5;">SignUp</a>
-            </li>
+      </nav>
+      <nav class="rightmenu">
+        <img src="/assets/images/logo.png" alt="Travelto" class="logo" />
+        <h1 class="logotext">TravelTopia</h1>
+        <ul class ="guest" id="guest">
+          <li>
+            <a href="login.html" style="background-color: lightblue">login</a>
+          </li>
+          <li>
+            <a href="signup.html" style="background-color: #00c0e5">SignUp</a>
+          </li>
         </ul>
-        
-    </nav>
-  
-   </header> 
-</body>
+        <ul class="user" id="user" style="display: none;">
+          <li>
+            <a href="profile.html">profile</a>
+          </li>
+          <li>
+            <a href="chat.html">chat</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    </div>
+    <script>
+      function showMenu() {
+        document.querySelector(".hamburgermenu").style.left = "0vw";
+      }
+      function hideMenu() {
+        document.querySelector(".hamburgermenu").style.left = "-15vw";
+      }
+
+    </script>
+<script src="js/checkuser.js"></script>
+  </body>
 </html>

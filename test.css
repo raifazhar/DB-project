@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.parallax{
+    display: flex;
+    height: 100vh;
+    justify-content: center;    
+    position: relative;
+    pointer-events: none;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    transition: 0.45s cubic-bezier(.22,.58,.4,1.02);
+}
+.img1{
+    height: 110vh;
+    top: -2vh;
+}
+.img4{
+    height:102vh;
+}
+.img5{
+    height: 100vh;
+    bottom: -2vh;
+
+}
+.parallax h1{
+    top:6vh;
+    position: absolute;
+    line-height: 30vh;
+    color: white;
+    font-size: 12em;
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 900;
+    text-shadow: 0 5px 10px rgba(0,0,0,1);
+    pointer-events: auto;
+    user-select: none;
+}
+.parallax img{
+    position: absolute;
+}
