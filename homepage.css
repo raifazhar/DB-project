@@ -1,32 +1,89 @@
-body
+/* body
 {
-    background: url(./assets/images/backgroundmountain.avif),url(./assets/images/backgroundfog.jpg);
+    /* background: url(./backgroundmountain.avif),url(/backgroundfog.jpg);
     background-repeat: no-repeat,repeat-x;
     background-size: cover,cover;
     background-blend-mode:lighten;
     animation-name: fog;
     animation-duration: 5s;
-    animation-timing-function:ease;
+    animation-timing-function:linear;
     animation-iteration-count:infinite;
     animation-direction: alternate;
     background-attachment:fixed;
-    overflow-x: hidden;
+    overflow-x: hidden; */
+.specialheader
+{
+    z-index: 2;
 }
 
-@keyframes fog{
-    0%{background-position:0% top,0%;background-size: cover,200%;}
-    100%{background-position:0% top,100%;background-size: cover,200%;}
- }
+.home video
+{
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.videoslider.active
+{
+    clip-path: circle(150% at 0 50%);
+    transition: 2s ease;
+    transition-property: clip-path;
+}
+.videoslider
+{
+    position: absolute;
+    clip-path: circle(0% at 0 50%);
+    
+}
+
+.slidernavigation
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(30vh);
+    margin-bottom: 15px;
+
+}
+.slidernavigation .nav-button
+{
+    width: 12px;
+    height: 12px;
+    background: white;  
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease;
+}
+.slidernavigation .nav-button:not(:last-child)
+{
+    margin-right: 20px;
+}
+.slidernavigation .nav-button:hover
+{
+    transform: scale(1.2);
+}
+.nav-button.active
+{
+    background:#00c0e5;
+}
 
  .introcontainer
  {
+    z-index: 888;
     position: absolute;
     margin-top: 10vh;
     display: flex;
     justify-content: center;
-    align-items:flex-start;
-    width: 100vw;
-    height:100vh;
+    align-items:center;
+    flex-direction: column;
+    width: 100%;
     
  }
 .intro{
@@ -65,7 +122,6 @@ body
 }
 .intro button:hover{
     background-color: grey;
-=======
     background-image: url(./backgroundmountain.avif),url(./backgroundfog.jpg);
     background-repeat: no-repeat,no-repeat;
     background-size: 100%,cover;
