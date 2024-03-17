@@ -1,69 +1,81 @@
 *{
     margin: 0%;
     padding: 0%;
+    font-family: 'Poppins',sans-serif;
 }
 
-#Parallax{
-    overflow-x: hidden;
-    overflow-y: hidden;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-
-    place-items: center;
-    justify-content: center;
+.parallax{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;    
+    position: absolute;
+    pointer-events: none;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    transition: 0.45s cubic-bezier(.22,.58,.4,1.02);
+}
+.parllax img{
+    position: absolute;
 }
 
-#Parallax img{
-    width: 110vw;
-    height:100vh;
+
+.inputformdiv {
+    background-color: beige;
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    text-align: right;
+    top:40vh;
+    padding: 10px;
+    border-radius: 40px;
+    margin-top: 10vh;
 }
 
-#Parallax #Sky{
-    grid-area: 1/1;
-}
-
-#Parallax #Mountain{
-    grid-area: 1/1;
-}
-
-#Parallax #Water{
-    grid-area: 1/1;
-    width: 150%;
-}
-#Parallax #ParallaxDiv{
-    grid-area: 1/1;
-    
-    width: auto;
-    padding: 1%;
-
-    background: rgb(83,86,255);
-    background: linear-gradient(83deg, rgba(83,86,255,1) 21%, rgba(55,140,231,1) 43%, rgba(103,198,227,1) 73%, rgba(223,245,255,1) 100%);
-    
+.inputformdiv input {
+    padding: 1vh 2vw;
+    margin: 1vh 1vw;
     border-radius: 10px;
-    border: 2px solid black;
-    
-
-    text-align: center;
+    border: 1px solid black;
+    font-size: 2vh;
 }
-.Details{
-    margin: 0% 0% 5% 0%;
-    padding: 1%;
-}
-
-#ParallaxDiv input, button{
+.inputformdiv button{
+    padding: 1vh 2vw;
     border-radius: 10px;
+    border: 1px solid black;
+    font-size: 2vh;
+    margin: 0% 30% 0% 0%;
 
-    background: rgb(215,228,192);
-    background: linear-gradient(270deg, rgba(215,228,192,1) 21%, rgba(198,220,186,1) 43%, rgba(187,195,164,1) 73%, rgba(179,163,152,1) 100%);
+}
+.loader {
+    display: none;
+    margin: auto;
+    border: 4px solid aqua;
+    /* Light grey */
+    border-top: 4px solid beige;
+    /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+}
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error {
+    display: none;
+    background-color: lightcoral;
+    border-radius: 10px;
+    padding: 5px;
     text-align: center;
-}
-
-#ParallaxDiv input:hover{
-    border: 2px solid red;
-}
-#ParallaxDiv button:hover{
-    border: 2px solid red;
+    width: fit-content;
+    margin: auto
 }

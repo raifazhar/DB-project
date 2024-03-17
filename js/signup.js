@@ -45,7 +45,7 @@ function validateForm() {
         }
       } else if (xmlHttp.status == 200 && jsonResponse["status"] == "success") {
         alert("Account Created!");
-        window.location.href = "login.html";
+        window.location.href = "loginPage/login.html";
       }
       document.getElementById("loader").style.display = "none";
       document.getElementById("createaccount").style.display = "inline-block";
