@@ -8,10 +8,16 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" /> -->
     <title>TravelTopia SignUp</title>
   </head>
+  <script>
+    $(function () {
+      $("#specialheader").load("specialheader.html");
+    });
+  </script>
   <body>
-    <video class = "BGVideo" autoplay loop mute src="assets/vidoes/SignUpPageVideo.mp4"></video>
+    <div id="specialheader"></div>
 
-    <header><p>SIGN UP NOW</p></header>
+    <video class = "BGVideo" autoplay loop mute src="assets/vidoes/Pexels Videos 2098989 (2160p).mp4"></video>
+    
     <div class="inputformdiv">
       <form name="inputform" class="inputform" onsubmit="return false">
         <label for="Name">Name</label>
@@ -25,10 +31,10 @@
         <p class="error password" id="error password">Password is invalid!</p>
         <label for="UserType1">Type</label>
         <input type="radio" id="UserType1" name="UserType" value="Traveler" checked />
-        Traveler
+        <label for="UserType1">Traveler</label>
         <label for="UserType2"></label>
         <input type="radio" id="UserType2" name="UserType" value="Guide" />
-        Guide
+        <label for="UserType2">Guide</label>
         <br />
         <button class="createaccount" id="createaccount" onclick="validateForm()">Create Account</button>
         <div class="loader" id="loader"></div>
