@@ -7,14 +7,14 @@ header{
     display:flex;
     justify-content: center;
     align-items: center;
-    min-height: 10vh;
-    background-color: cornsilk;
+    min-height: 5vh;
+    background-color: brown;
 }
 header p{
-    font-size: 5vh;
+    font-size: 3vh;
 }
 .inputformdiv{
-    background-color: beige;
+    background-color: brown;
     justify-content: center;
     width: fit-content;
     margin: auto;
@@ -61,4 +61,12 @@ header p{
     text-align: center;
     width: fit-content;
     margin: auto
+}
+
+.BGVideo{
+    width: 100vw;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
 }
