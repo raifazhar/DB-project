@@ -7,14 +7,16 @@ header{
     display:flex;
     justify-content: center;
     align-items: center;
-    min-height: 10vh;
-    background-color: cornsilk;
+    min-height: 5vh;
+    background-color: rgba(0,0,10,0.8);
+
 }
 header p{
-    font-size: 5vh;
+    font-size: 3vh;
+    color: antiquewhite;
 }
 .inputformdiv{
-    background-color: beige;
+    background-color: rgba(0,0,0,0.8);
     justify-content: center;
     width: fit-content;
     margin: auto;
@@ -30,6 +32,9 @@ header p{
     border-radius: 10px;
     border: 1px solid black;
     font-size: 2vh;
+}
+.inputformdiv label{
+    color: aliceblue;
 }
 .createaccount{
         padding: 1vh 2vw;
@@ -61,4 +66,12 @@ header p{
     text-align: center;
     width: fit-content;
     margin: auto
+}
+
+.BGVideo{
+    width: 100vw;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
 }
