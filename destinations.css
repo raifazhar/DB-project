@@ -1,0 +1,29 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: green;
+}
+.List{
+padding-top: 10vh;
+}
+.ListDiv{
+    display: flex;
+    margin: 10vh;
+    justify-content: left;
+    align-items: center;
+    list-style: none;
+}
+.ListDiv ul li{
+    padding: 20px;
+    margin: 20px;
+    width: fit-content;
+    background-color: red;
+    border-radius: 20px;
+    transition: 0.5s
+}
+.ListDiv ul li:hover{
+    font-size: 2em;
+}
