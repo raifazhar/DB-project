@@ -3,7 +3,7 @@ margin: 0;
 padding: 0;
 font-family: 'Poppins',sans-serif;
 }
-header{
+/* header{
     display:flex;
     justify-content: center;
     align-items: center;
@@ -14,9 +14,19 @@ header{
 header p{
     font-size: 3vh;
     color: antiquewhite;
+} */
+.container
+{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .inputformdiv{
     background-color: rgba(0,0,0,0.8);
+    display: flex;
     justify-content: center;
     width: fit-content;
     margin: auto;
@@ -24,7 +34,7 @@ header p{
     align-items: center;
     padding: 10px;
     border-radius: 40px;
-    margin-top: 10vh;
+    margin-top: 20vh;
 }
 .inputformdiv input{
     padding: 1vh 2vw;

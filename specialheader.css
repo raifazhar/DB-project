@@ -76,7 +76,8 @@ header
     height: 100vh;
     position:absolute;
     background: rgb(80,77,134);
-background: radial-gradient(circle, rgba(80,77,134,0.5) 0%, rgba(118,117,162,0.6) 24%, rgba(160,160,193,0.7) 50%, rgba(108,149,176,0.5) 72%, rgba(41,135,154,0.5) 100%);
+    background: radial-gradient(circle, rgba(80,77,134,0.9) 0%, rgba(118,117,162,0.9) 24%, rgba(160,160,193,0.9) 50%, rgba(108,149,176,0.9) 72%, rgba(41,135,154,0.9) 100%); 
+    /* background-color: grey; */
     filter: blur(0.5px);
     border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -104,7 +105,7 @@ background: radial-gradient(circle, rgba(80,77,134,0.5) 0%, rgba(118,117,162,0.6
     color: white;
     font-size: 2vw;
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 600;
 }
 .logo
 {
