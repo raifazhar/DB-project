@@ -1,0 +1,106 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-image: url(/assets/images/backgroundmountain.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.searchbar-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 20vh;
+    height: 10vh;
+}
+
+.searchbar
+{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.searchbar-input
+{
+    width: 90% ;
+    height: 50%;
+    padding-left:2vw ;
+    border-radius: 20px;
+    border: none;
+}
+.imagecontainer
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.searchbar-logo
+{
+    width: auto ;
+    height: 60%;
+    border-radius: 50% ;
+    margin-left: 1vw;
+}
+.browser-container
+{
+    position: relative;
+    /* background-color: red; */
+    width: 90%;
+    margin-left: 5%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    margin-top: 10vh;  
+}
+.browser-container ul{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.5rem;
+    
+}
+.browser-container ul li
+{
+    position: relative;
+    list-style: none;
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+    overflow: hidden;
+    
+}
+.browser-container ul li a
+{
+    text-align: center;
+    position: absolute;
+    display: block;
+    z-index: 30;
+    width: 100%;
+    height: 20%;
+    font-size: large;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    /* background-color:green; */
+    bottom: 0;
+}
+.browser-container ul li img
+{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}

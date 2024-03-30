@@ -20,23 +20,27 @@
     <button class="hamburgermenu-button" onclick="showMenu()">
       <div class="hamburgermenu-bar"></div>
     </button>
-    <nav class="hamburgermenu">
-      <i class="fa fa-times" onclick="hideMenu()"></i>
-      <ul>
-        <li>
-          <a href="#">profile</a>
-        </li>
-        <li>
-          <a href="#">chat</a>
-        </li>
-        <li>
-          <a href="#">places</a>
-        </li>
-        <li>
-          <a href="#">history</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="hamburgercontainer">
+      <nav class="hamburgermenu">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li>
+            <a href="#">profile</a>
+          </li>
+          <li>
+            <a href="#">chat</a>
+          </li>
+          <li>
+            <a href="#">places</a>
+          </li>
+          <li>
+            <a href="#">history</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="hamburgermenuback" ></div>
+    </div>
+   
     <nav class="rightmenu">
       <img src="/assets/images/logo.png" alt="Travelto" class="logo" />
       <h1 class="logotext">TravelTopia</h1>
@@ -62,9 +66,11 @@
   <script>
     function showMenu() {
       document.querySelector(".hamburgermenu").style.left = "0vw";
+      document.querySelector(".hamburgermenuback").style.left = "0vw";
     }
     function hideMenu() {
       document.querySelector(".hamburgermenu").style.left = "-20vw";
+      document.querySelector(".hamburgermenuback").style.left = "-20vw";
     }
 
   </script>

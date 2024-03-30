@@ -68,6 +68,9 @@ header
     font-size: 3vw;
     cursor: pointer;
 }
+.hamburgercontainer
+{
+}
 .hamburgermenu
 {
     z-index: 1000;
@@ -75,13 +78,27 @@ header
     left: -20vw;
     height: 100vh;
     position:absolute;
-    background: rgb(80,77,134);
-    background: radial-gradient(circle, rgba(80,77,134,0.9) 0%, rgba(118,117,162,0.9) 24%, rgba(160,160,193,0.9) 50%, rgba(108,149,176,0.9) 72%, rgba(41,135,154,0.9) 100%); 
+    /* background: rgb(80,77,134); */
+    /* background: radial-gradient(circle, rgba(80,77,134,0.9) 0%, rgba(118,117,162,0.9) 24%, rgba(160,160,193,0.9) 50%, rgba(108,149,176,0.9) 72%, rgba(41,135,154,0.9) 100%);  */
     /* background-color: grey; */
-    filter: blur(0.5px);
     border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     transition: 0.5s;
+    /* backdrop-filter: blur(50px); */
+}
+.hamburgermenuback
+{
+    filter: blur(20px);
+
+    z-index: 999;
+    width: 20vw;
+    left: -20vw;
+    height: 100vh;
+    position:absolute;
+    background-color:rgba(0,0,0,0.5);
+    /* background-color: white; */
+    transition: 0.5s;
+    filter: blur(0.5);
 }
 
 .hamburgermenu ul
