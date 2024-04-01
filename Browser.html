@@ -27,40 +27,83 @@
     </div>
 
     <div class="browser-container">
-      <ul>
+      <ul id="grid-container">
         <li>
-          <a href="" class="browsercell-title">1</a>
+          <div class="broswercell-textcontainer">
+            <a href="" class="browsercell-title">Page 1</a>
+          </div>
           <img src="/assets/images/backgroundmountain.avif" alt="" class="browsercell-image">
         </li>
         <li>
-          <a href="" class="browsercell-title">2</a>
+          <div class="broswercell-textcontainer">
+            <a href="" class="browsercell-title">Page 2</a>
+          </div>
           <img src="/assets/images/backgroundmountain.avif" alt="" class="browsercell-image">
         </li>
         <li>
-          <a href="" class="browsercell-title">3</a>
+          <div class="broswercell-textcontainer">
+            <a href="" class="browsercell-title">Page 3</a>
+          </div>
           <img src="/assets/images/backgroundmountain.avif" alt="" class="browsercell-image">
         </li>
         <li>
-          <a href="" class="browsercell-title">4</a>
+          <div class="broswercell-textcontainer">
+            <a href="" class="browsercell-title">Page 4</a>
+          </div>
           <img src="/assets/images/backgroundmountain.avif" alt="" class="browsercell-image">
         </li>
         <li>
-          <a href="" class="browsercell-title">1</a>
+          <div class="broswercell-textcontainer">
+            <a href="" class="browsercell-title">Page 5</a>
+          </div>
           <img src="/assets/images/backgroundmountain.avif" alt="" class="browsercell-image">
         </li>
         <li>
-          <a href="" class="browsercell-title">2</a>
+          <div class="broswercell-textcontainer">
+            <a href="" class="browsercell-title">Page 6</a>
+          </div>
           <img src="/assets/images/backgroundmountain.avif" alt="" class="browsercell-image">
         </li>
         <li>
-          <a href="" class="browsercell-title">3</a>
+          <div class="broswercell-textcontainer">
+            <a href="" class="browsercell-title">Page 7</a>
+          </div>
           <img src="/assets/images/backgroundmountain.avif" alt="" class="browsercell-image">
         </li>
         <li>
-          <a href="" class="browsercell-title">4</a>
+          <div class="broswercell-textcontainer">
+            <a href="" class="browsercell-title">Page 8</a>
+          </div>
           <img src="/assets/images/backgroundmountain.avif" alt="" class="browsercell-image">
         </li>
+       
+        
+        
       </ul>
     </div>
 </body>
+<script>
+  window.addEventListener('load', function() {
+  // Function to calculate and update grid layout
+  function updateGridLayout() {
+    var containerWidth = document.getElementById('grid-container').offsetWidth;
+
+    console.log(containerWidth);
+    var itemWidth =300; // Adjust this value according to your needs
+    var minColumns =1; // Minimum number of columns
+   
+
+    var columns = Math.floor(containerWidth / itemWidth);
+    columns = Math.max(columns, minColumns); // Ensure minimum number of columns
+
+    document.getElementById('grid-container').style.gridTemplateColumns = 'repeat(' + columns + ', 1fr)';
+  }
+
+  // Call the function initially
+  updateGridLayout();
+
+  // Call the function whenever the window is resized
+  window.addEventListener('resize', updateGridLayout);
+});
+</script>
 </html>
