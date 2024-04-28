@@ -1,6 +1,7 @@
 let forminputs = document.querySelectorAll(".inputform input");
 let url;
 url = "https://db-project-api.vercel.app";
+// url = "http://localhost:3307";
 function validateForm() {
   let errors = document.getElementsByClassName("error");
   for (let i = 0; i < errors.length; i++) {
@@ -22,37 +23,35 @@ function validateForm() {
     usertype: type,
   };
   let jsonData = JSON.stringify(data);
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function () {
-    if (xmlHttp.readyState == XMLHttpRequest.DONE) {
-      if (xmlHttp.status == 0) {
-        alert("Can't reach Server!");
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("createaccount").style.display = "inline-block";
-        return;
-      }
-      let jsonResponse = JSON.parse(xmlHttp.responseText);
-      if (xmlHttp.status == 400) {
-        if (jsonResponse["status"] == "failed") {
-          if (jsonResponse["element"] == "user") {
-            alert("User already exists!");
-          } else if (jsonResponse["element"] == "username") {
-            document.getElementById("error name").style.display = "block";
-          } else if (jsonResponse["element"] == "email") {
-            document.getElementById("error email").style.display = "block";
-          } else if (jsonResponse["element"] == "password") {
-            document.getElementById("error password").style.display = "block";
-          }
+  fetch(url + "/api/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+    body: jsonData,
+  })
+    .then(async (response) => {
+      let responsejson = await response.json();
+      if (response.status != 200) {
+        if (responsejson["element"] == "user") {
+          alert("User already exists!");
+        } else if (responsejson["element"] == "username") {
+          document.getElementById("error name").style.display = "block";
+        } else if (responsejson["element"] == "email") {
+          document.getElementById("error email").style.display = "block";
+        } else if (responsejson["element"] == "password") {
+          document.getElementById("error password").style.display = "block";
         }
-      } else if (xmlHttp.status == 200 && jsonResponse["status"] == "success") {
+      } else {
         alert("Account Created!");
         window.location.href = "../loginPage/login.html";
       }
       document.getElementById("loader").style.display = "none";
       document.getElementById("createaccount").style.display = "inline-block";
-    }
-  };
-  xmlHttp.open("POST", url + "/api/signup", true);
-  xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xmlHttp.send(jsonData);
+    })
+    .catch((err) => {
+      console.error("Error: ", err);
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("createaccount").style.display = "inline-block";
+    });
 }

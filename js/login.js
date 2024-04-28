@@ -1,6 +1,7 @@
 let forminputs = document.querySelectorAll(".inputform input");
 let url;
 url = "https://db-project-api.vercel.app";
+// url = "http://localhost:3307";
 function validateLoginForm() {
   let errors = document.getElementsByClassName("error");
   for (let i = 0; i < errors.length; i++) {
@@ -14,30 +15,25 @@ function validateLoginForm() {
     password: forminputs[1].value,
   };
   let jsonData = JSON.stringify(data);
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function () {
-    if (xmlHttp.readyState == XMLHttpRequest.DONE) {
-      let jsonResponse = JSON.parse(xmlHttp.responseText);
-      if (xmlHttp.status != 200) {
-        if (jsonResponse["status"] == "failed") {
-          document.getElementById("error").style.display = "block";
-          document.getElementById("error").textContent = jsonResponse["message"];
-        }
-      } else if (xmlHttp.status == 200) {
-        localStorage.setItem("email", jsonResponse["user"]["email"]);
-        localStorage.setItem("username", jsonResponse["user"]["username"]);
-        localStorage.setItem("type", jsonResponse["user"]["type"]);
-        localStorage.setItem("token", jsonResponse["token"]);
-        window.location.href = "../homepage.html";
-      } else {
-        document.getElementById("error").style.display = "block";
-        document.getElementById("error").textContent = "Server Error";
-      }
-      document.getElementById("loader").style.display = "none";
-      document.getElementById("Login").style.display = "inline-block";
+  fetch(url + "/api/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+    body: jsonData,
+  }).then(async (response) => {
+    let responsejson = await response.json();
+    if (response.status != 200) {
+      document.getElementById("error").style.display = "block";
+      document.getElementById("error").textContent = responsejson["message"];
+    } else {
+      localStorage.setItem("email", responsejson["user"]["email"]);
+      localStorage.setItem("username", responsejson["user"]["username"]);
+      localStorage.setItem("type", responsejson["user"]["type"]);
+      localStorage.setItem("token", responsejson["token"]);
+      window.location.href = "../homepage.html";
     }
-  };
-  xmlHttp.open("POST", url + "/api/login", true);
-  xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xmlHttp.send(jsonData);
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("Login").style.display = "inline-block";
+  });
 }

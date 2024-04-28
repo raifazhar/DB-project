@@ -3,16 +3,18 @@ let useritems = document.querySelectorAll(".user");
 let htmlelement = document.getElementsByTagName("html")[0];
 let url;
 url = "https://db-project-api.vercel.app";
+// url = "http://localhost:3307";
 async function checkUser() {
   htmlelement.hidden = true;
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.onreadystatechange = function () {
-    if (xmlHttp.readyState == XMLHttpRequest.DONE) {
-      if (xmlHttp.status == 0) {
-        alert("Can't reach Server!");
-        return;
-      }
-      if (xmlHttp.status == 200) {
+  fetch(url + "/api/verify", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+      "x-auth-token": localStorage.getItem("token"),
+    },
+  })
+    .then((response) => {
+      if (response.status == 200) {
         for (let i = 0; i < guestitems.length; i++) {
           guestitems[i].style.display = "none";
         }
@@ -29,27 +31,10 @@ async function checkUser() {
         }
       }
       htmlelement.hidden = false;
-    }
-  };
-  xmlHttp.onerror = function () {
-    htmlelement.hidden = false;
-  };
-
-  xmlHttp.ontimeout = function () {
-    htmlelement.hidden = false;
-  };
-
-  xmlHttp.onabort = function () {
-    htmlelement.hidden = false;
-  };
-  xmlHttp.open("GET", url + "/api/verify", true);
-  xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xmlHttp.setRequestHeader("x-auth-token", localStorage.getItem("token"));
-  let user = {
-    username: localStorage.getItem("username"),
-    email: localStorage.getItem("email"),
-    usertype: localStorage.getItem("type"),
-  };
-  await xmlHttp.send(JSON.stringify(user));
+    })
+    .catch((err) => {
+      console.error("Error: ", err);
+      htmlelement.hidden = false;
+    });
 }
 window.onload = checkUser();
