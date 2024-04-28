@@ -1,5 +1,6 @@
 let forminputs = document.querySelectorAll(".inputform input");
-let url = "https://db-project-api.vercel.app";
+let url;
+url = "https://db-project-api.vercel.app";
 function validateLoginForm() {
   let errors = document.getElementsByClassName("error");
   for (let i = 0; i < errors.length; i++) {

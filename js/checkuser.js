@@ -1,7 +1,8 @@
 let guestitems = document.querySelectorAll(".guest");
 let useritems = document.querySelectorAll(".user");
 let htmlelement = document.getElementsByTagName("html")[0];
-let url = "https://db-project-api.vercel.app";
+let url;
+url = "https://db-project-api.vercel.app";
 async function checkUser() {
   htmlelement.hidden = true;
   var xmlHttp = new XMLHttpRequest();

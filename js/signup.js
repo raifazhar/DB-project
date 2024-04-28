@@ -1,5 +1,6 @@
 let forminputs = document.querySelectorAll(".inputform input");
-let url = "https://db-project-api.vercel.app";
+let url;
+url = "https://db-project-api.vercel.app";
 function validateForm() {
   let errors = document.getElementsByClassName("error");
   for (let i = 0; i < errors.length; i++) {
@@ -45,7 +46,7 @@ function validateForm() {
         }
       } else if (xmlHttp.status == 200 && jsonResponse["status"] == "success") {
         alert("Account Created!");
-        window.location.href = "loginPage/login.html";
+        window.location.href = "../loginPage/login.html";
       }
       document.getElementById("loader").style.display = "none";
       document.getElementById("createaccount").style.display = "inline-block";
