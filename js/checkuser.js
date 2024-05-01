@@ -31,10 +31,14 @@ async function checkUser() {
         }
       }
       htmlelement.hidden = false;
+      let event = new Event("checkUserFinished");
+      window.dispatchEvent(event);
     })
     .catch((err) => {
       console.error("Error: ", err);
       htmlelement.hidden = false;
+      let event = new Event("checkUserFinished");
+      window.dispatchEvent(event);
     });
 }
 window.onload = checkUser();
