@@ -18,10 +18,10 @@ async function updateProfile() {
     .then(async (response) => {
       if (response.status == 200) {
         let responsejson = await response.json();
-        profilename.innerHTML = responsejson.name;
+        profilename.textContent = responsejson.name;
         picture.src = responsejson.ProfilePicture;
-        bio.innerHTML = responsejson.Bio;
-        travelPrefs.innerHTML = responsejson.TravelPreferences;
+        bio.textContent = responsejson.Bio;
+        travelPrefs.textContent = responsejson.TravelPreferences;
       } else {
         localStorage.clear();
         window.location.href = "../loginPage/login.html";

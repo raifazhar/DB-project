@@ -1,0 +1,19 @@
+*{
+font-family: 'Poppins', sans-serif;
+}
+body
+{
+    overflow-x: hidden;
+    background-color: cornflowerblue;
+}
+#specialheader{
+    border: 1px solid transparent;
+}
+#profilepage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10vh;
+    color: white;
+}

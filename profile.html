@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="homepage.css" />
+    <link rel="stylesheet" href="profile.css" />
     <title>Profile</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -23,19 +23,21 @@
 <body>
     <div id="specialheader"></div>
 
-    <p class="profile name">
-        Profile Name
-    </p>
-    <picture class="profile picture">
-        Profile Picture
-    </picture>
-    <p class="profile bio">
-        Profile BIO
-    </p>
-    <p class="profile travelPrefs">
-        Profile TravelPrefs
-    </p>
-    <script src="../js/profile.js"></script>
+    <section id="profilepage">
+        <p class="profile name">
+            Profile Name
+        </p>
+        <picture class="profile picture">
+            Profile Picture
+        </picture>
+        <p class="profile bio">
+            Profile BIO
+        </p>
+        <p class="profile travelPrefs">
+            Profile TravelPrefs
+        </p>
+    </section>
+    <script src="js/profile.js"></script>
     <script>
         window.addEventListener('checkUserFinished', updateProfile);
     </script>
