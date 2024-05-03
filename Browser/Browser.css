@@ -4,7 +4,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background-image: url(/assets/images/backgroundmountain.avif);
+    background-image: url(../Browser/images/backgroundmountain.avif);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -29,6 +29,7 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 100%;
+
 }
 
 .searchbar-input
@@ -36,9 +37,16 @@ body{
     width: 90% ;
     height: 50%;
     padding-left:2vw ;
+    border-color:black;
+    border: 30px;
     border-radius: 20px;
-    border: none;
     background-color: rgba(255, 255, 255, 0.7);
+
+}
+.searchbar-input::placeholder
+{
+    color: black;
+    font-size: large;
 }
 .imagecontainer
 {
@@ -52,10 +60,16 @@ body{
 .searchbar-logo
 {
     width: auto ;
-    height: 60%;
+    height: 50%;
     border-radius: 50% ;
     margin-left: 1vw;
+    background-color:black;
     cursor: pointer;
+}
+.searchbar-logo img
+{
+    width: 100%;
+    height: 100%;
 }
 .browser-container
 {
@@ -63,12 +77,11 @@ body{
     /* background-color: red; */
     width: 90%;
     margin-left: 5%;
-
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10vh;
-    margin-bottom: 100vh;
+    margin-bottom: 10vh;
 }
 .browser-container ul{
     display: grid;

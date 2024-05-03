@@ -134,46 +134,6 @@ body::before
     background-attachment: fixed;
     padding-top: 5vh;
 }
-.Browser-container
-{
-    margin-top: 0vh;
-    width: 50%;
-    margin-left: 5vw;
-    /* background-color: azure; */
-    border-radius: 30px;
-    padding: 2% 1%;
-    margin-top: 10vh;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border:1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    
-}
-.left
-{
-    animation: moveright linear;
-    animation-timeline: view(0 0px);
-}
-.right
-{
-    animation: moveright linear;
-    animation-direction: reverse;
-    animation-timeline: view(0 0);
-}
-.Browser-container h1{
-    font-size: xx-large;
-    margin-bottom: 2vh;
-    animation: textleft linear;
-    animation-timeline: view(0 0);
-    
-}
-.Browser p
-{
-    animation: textleft linear;
-    animation-timeline: view(0 0);
-}
 @keyframes moveright {
     from{transform: translateX(-100vw);}
     30%{transform: translateX(5vw)}

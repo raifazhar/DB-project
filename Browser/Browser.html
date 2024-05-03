@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="browser.css" />
+  <link rel="stylesheet" href="../Browser/Browser.css" />
   <title>Trying</title>
 </head>
 <script>
   $(function () {
-    $("#specialheader").load("/specialheader/specialheader.html");
+    $("#specialheader").load("../specialheader/specialheader.html");
   });
 </script>
 
@@ -19,64 +19,15 @@
   <div id="specialheader"></div>
   <div class="searchbar-container">
     <div class="searchbar">
-      <input type="text" class="searchbar-input">
+      <input type="text" class="searchbar-input" placeholder="search">
       <div class="imagecontainer">
-        <img class="searchbar-logo" src="/assets/images/search-logo.png" alt="">
-
+        <button class="searchbar-logo" onclick=""> <img  src="../Browser/images/search-logo.png" alt=""> </button>
       </div>
     </div>
   </div>
 
   <div class="browser-container">
-    <ul id="grid-container">
-      <li>
-        <div class="broswercell-textcontainer">
-          <a href="" class="browsercell-title">Barcelona</a>
-        </div>
-        <img src="/assets/images/Barcelona.jpg" alt="" class="browsercell-image">
-      </li>
-      <li>
-        <div class="broswercell-textcontainer">
-          <a href="" class="browsercell-title">London</a>
-        </div>
-        <img src="/assets/images/Lonon.jpg" alt="" class="browsercell-image">
-      </li>
-      <li>
-        <div class="broswercell-textcontainer">
-          <a href="" class="browsercell-title">Murree</a>
-        </div>
-        <img src="/assets/images/Murree.jpg" alt="" class="browsercell-image">
-      </li>
-      <li>
-        <div class="broswercell-textcontainer">
-          <a href="" class="browsercell-title">Paris</a>
-        </div>
-        <img src="/assets/images/Paris.jpg" alt="" class="browsercell-image">
-      </li>
-      <li>
-        <div class="broswercell-textcontainer">
-          <a href="" class="browsercell-title">Rio De Janeiro</a>
-        </div>
-        <img src="/assets/images/Rio De Janeiro.jpg" alt="" class="browsercell-image">
-      </li>
-      <li>
-        <div class="broswercell-textcontainer">
-          <a href="" class="browsercell-title">Rome</a>
-        </div>
-        <img src="/assets/images/Rome.jpg" alt="" class="browsercell-image">
-      </li>
-      <li>
-        <div class="broswercell-textcontainer">
-          <a href="" class="browsercell-title">Sydney</a>
-        </div>
-        <img src="/assets/images/Sydney.jpg" alt="" class="browsercell-image">
-      </li>
-      <li>
-        <div class="broswercell-textcontainer">
-          <a href="" class="browsercell-title">Tokyo</a>
-        </div>
-        <img src="/assets/images/Tokyo.jpg" alt="" class="browsercell-image">
-      </li>
+    <ul id="grid-container"></ul>
     </ul>
   </div>
 </body>
@@ -104,5 +55,5 @@
     window.addEventListener('resize', updateGridLayout);
   });
 </script>
-
+<script src="../js/browser.js"></script>
 </html>
