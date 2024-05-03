@@ -31,7 +31,7 @@ function validateLoginForm() {
       localStorage.setItem("username", responsejson["user"]["username"]);
       localStorage.setItem("type", responsejson["user"]["type"]);
       localStorage.setItem("token", responsejson["token"]);
-      window.location.href = "../homepage.html";
+      window.location.href = "../homepage/homepage.html";
     }
     document.getElementById("loader").style.display = "none";
     document.getElementById("Login").style.display = "inline-block";

@@ -24,20 +24,24 @@
     <div id="specialheader"></div>
 
     <section id="profilepage">
-        <p class="profile name">
-            Profile Name
-        </p>
-        <picture class="profile picture">
-            Profile Picture
-        </picture>
-        <p class="profile bio">
-            Profile BIO
-        </p>
-        <p class="profile travelPrefs">
-            Profile TravelPrefs
-        </p>
+        <div id="profileheader">
+            <img class="profile picture" height=150 src="../assets/images/backgroundfog.jpg">
+            </img>
+            <div id="profileBio">
+                <p class="profile name">
+                    Profile Name
+                </p>
+                <p class="profile travelPrefs">
+                    Profile TravelPrefs
+                </p>
+                <p class="profile bio">
+                    Profile BIO
+                </p>
+            </div>
+        </div>
+
     </section>
-    <script src="js/profile.js"></script>
+    <script src="../js/profile.js"></script>
     <script>
         window.addEventListener('checkUserFinished', updateProfile);
     </script>

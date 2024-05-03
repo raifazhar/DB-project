@@ -4,16 +4,49 @@ font-family: 'Poppins', sans-serif;
 body
 {
     overflow-x: hidden;
-    background-color: cornflowerblue;
+    background-color: rgb(40,40,40);
+    background-color: linear-gradient(0deg, rgba(40,40,40,1) 0%, rgba(11,11,11,1) 22%, rgba(52,52,52,1) 57%, rgba(111,111,111,1) 100%);
 }
 #specialheader{
     border: 1px solid transparent;
 }
 #profilepage{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     margin-top: 10vh;
     color: white;
+}
+#profileheader{
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+}
+#profileheader img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    align-self: center;
+    background-color: black;
+}
+#profileheader p{
+    margin: 1%;
+    background-color: darkgray;
+    border-radius: 10px;
+    color: black;
+    border: 1px solid white;
+}
+#profileheader .name{
+    text-align: center;
+    font-size: 20px;
+    padding: 1%;
+    font-weight: bold;
+    width: fit-content;
+    margin: 2% auto;
+}
+#profileheader .travelPrefs{
+    padding: 0.5% 2%;
+}
+#profileheader .bio{
+    font-size: 15px;
+    padding: 0.5% 2%;
 }
