@@ -4,11 +4,15 @@ url = "https://db-project-api.vercel.app";
 fetch(url + "/api/browser", {
   method: "GET",
   headers: { "Content-Type": "application/json;charset=UTF-8" },
-}).then(async (response) => {
-  if (response.status == 200) {
-    reorganizebrowser(response);
-  }
-});
+})
+  .then(async (response) => {
+    if (response.status == 200) {
+      reorganizebrowser(response);
+    }
+  })
+  .catch((err) => {
+    console.error("Error: ", err);
+  });
 
 const searchbutton = document.querySelector("#search");
 searchbutton.addEventListener("click", function () {
@@ -21,11 +25,15 @@ async function search(string) {
   fetch(url + "/api/search?searchstring=" + string, {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
-  }).then(async (response) => {
-    if (response.status == 200) {
-      reorganizebrowser(response);
-    }
-  });
+  })
+    .then(async (response) => {
+      if (response.status == 200) {
+        reorganizebrowser(response);
+      }
+    })
+    .catch((err) => {
+      console.error("Error: ", err);
+    });
 }
 
 async function reorganizebrowser(response) {

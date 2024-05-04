@@ -21,19 +21,25 @@ function validateLoginForm() {
       "Content-Type": "application/json;charset=UTF-8",
     },
     body: jsonData,
-  }).then(async (response) => {
-    let responsejson = await response.json();
-    if (response.status != 200) {
-      document.getElementById("error").style.display = "block";
-      document.getElementById("error").textContent = responsejson["message"];
-    } else {
-      localStorage.setItem("email", responsejson["user"]["email"]);
-      localStorage.setItem("username", responsejson["user"]["username"]);
-      localStorage.setItem("type", responsejson["user"]["type"]);
-      localStorage.setItem("token", responsejson["token"]);
-      window.location.href = "../homepage/homepage.html";
-    }
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("Login").style.display = "inline-block";
-  });
+  })
+    .then(async (response) => {
+      let responsejson = await response.json();
+      if (response.status != 200) {
+        document.getElementById("error").style.display = "block";
+        document.getElementById("error").textContent = responsejson["message"];
+      } else {
+        localStorage.setItem("email", responsejson["user"]["email"]);
+        localStorage.setItem("username", responsejson["user"]["username"]);
+        localStorage.setItem("type", responsejson["user"]["type"]);
+        localStorage.setItem("token", responsejson["token"]);
+        window.location.href = "../homepage/homepage.html";
+      }
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("Login").style.display = "inline-block";
+    })
+    .catch((err) => {
+      console.error("Error: ", err);
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("Login").style.display = "inline-block";
+    });
 }
