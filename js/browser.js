@@ -1,14 +1,6 @@
 
 url = "http://localhost:3000";
-console.log(url)
 
-const searchbutton=document.querySelector('#search')
-searchbutton.addEventListener('click',function()
-    {
-        const inputValue = document.getElementById("searchtext").value;
-        search(inputValue)
-    }
-)
 
 fetch(url + "/api/browser",{
     method: "GET"
@@ -21,7 +13,13 @@ fetch(url + "/api/browser",{
     }
 })
 
-
+const searchbutton=document.querySelector('#search')
+searchbutton.addEventListener('click',function()
+    {
+        const inputValue = document.getElementById("searchtext").value;
+        search(inputValue)
+    }
+)
 
 function search(string)
 {
@@ -58,10 +56,8 @@ async function reorganizebrowser(response)
         browserimg.classList.add('browsercell-image')
         browserli.appendChild(browsertitle)
         browserli.appendChild(browserimg)
-        console.log(element.pictureID)
         browserli.setAttribute('data-picture-id',element.pictureID);
         browserli.addEventListener('click',function(){getpage(element.pictureID)})
-        console.log(browserli)
         browsercontainer.appendChild(browserli)
     });
 }
