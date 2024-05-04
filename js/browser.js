@@ -3,8 +3,8 @@ url = "http://localhost:3000";
 
 
 fetch(url + "/api/browser",{
-    method: "GET"
-    
+    method: "GET",
+    headers:{"Content-Type": "application/json;charset=UTF-8"}
 })
 .then(async(response)=>{
     if(response.status==200)
@@ -21,7 +21,7 @@ searchbutton.addEventListener('click',function()
     }
 )
 
-function search(string)
+async function search(string)
 {
     console.log(string)
     fetch("http://localhost:3000" + "/api/search?searchstring=" + string,{
@@ -61,18 +61,8 @@ async function reorganizebrowser(response)
         browsercontainer.appendChild(browserli)
     });
 }
-// function getpage(id)
-// {
-//     fetch(url+"/api/palace",
-//     {
-//         method:"GET",
-//         body:{pictureID:id}
-//     })
-//     .then(async(response)=>{
-//         if(response.status==200)
-//         {
-//             let responsejson = await response.json();
-//         }
-//     })
-//     console.log(id);
-// }
+function getpage(id)
+{
+    console.log(id)
+    window.location.href = "../Place-Page/Place.html?id=" + id;
+}
