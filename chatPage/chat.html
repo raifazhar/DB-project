@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="chat.css" />
+    <title>Chat App</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+        integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+        crossorigin="anonymous"></script>
+</head>
+<script>
+    $(function () {
+        $("#specialheader").load("../specialheader/specialheader.html");
+    });
+</script>
+
+<body>
+    <div id="specialheader"></div>
+    <div id="chatroom">
+        <div id="users">
+            <div class="loaderdiv">
+                <div class="loader" id="loader"></div>
+            </div>
+            <ul id="userlist">
+            </ul>
+        </div>
+        <div id="messages">
+            <div class="loaderdiv">
+                <div class="loader" id="loader"></div>
+            </div>
+            <div id="messagesdiv">
+                <ul id="messagelist">
+                </ul>
+            </div>
+            <div id="inputdiv">
+                <input id="m" autocomplete="off" />
+                <button id="send" onclick=SendMessage()>Send</button>
+
+            </div>
+        </div>
+    </div>
+    <script src="../js/chat.js"></script>
+</body>
