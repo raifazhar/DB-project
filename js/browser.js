@@ -1,6 +1,5 @@
-
-url = "http://localhost:3000";
-
+url = "https://db-project-api.vercel.app";
+// url = "http://localhost:3000";
 
 fetch(url + "/api/browser",{
     method: "GET",
@@ -13,13 +12,11 @@ fetch(url + "/api/browser",{
     }
 })
 
-const searchbutton=document.querySelector('#search')
-searchbutton.addEventListener('click',function()
-    {
-        const inputValue = document.getElementById("searchtext").value;
-        search(inputValue)
-    }
-)
+const searchbutton = document.querySelector("#search");
+searchbutton.addEventListener("click", function () {
+  const inputValue = document.getElementById("searchtext").value;
+  search(inputValue);
+});
 
 async function search(string)
 {
