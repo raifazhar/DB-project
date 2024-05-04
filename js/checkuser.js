@@ -3,7 +3,7 @@ let useritems = document.querySelectorAll(".user");
 let htmlelement = document.getElementsByTagName("html")[0];
 let url;
 url = "https://db-project-api.vercel.app";
-// url = "http://localhost:3307";
+// url = "http://localhost:3000";
 async function checkUser() {
   htmlelement.hidden = true;
   fetch(url + "/api/verify", {
