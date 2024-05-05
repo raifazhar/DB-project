@@ -23,11 +23,15 @@
   </div>
   <div class="inputformdiv" style="z-index: 5">
     <form name="inputform" class="inputform" onsubmit="return false">
-      <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required />
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required />
+      </div>
       <br />
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
       <br />
       <p class="error" id="error">Invalid Credentials!</p>
       <button id="Login" onclick="validateLoginForm()">Login</button>
