@@ -63,5 +63,5 @@ async function reorganizebrowser(response) {
 }
 function getpage(id) {
   console.log(id);
-  window.location.href = "../Place-Page/Place.html?id=" + id;
+  window.location.href = "../placePage/place.html?id=" + id;
 }
