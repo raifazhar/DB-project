@@ -1,6 +1,6 @@
 plansElement = document.getElementById("plans");
-// url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
+url = "https://db-project-api.vercel.app";
+// url = "http://localhost:3000";
 //Intitialize modal menu for adding plans
 var modal = document.getElementById("myModal");
 var btn;
