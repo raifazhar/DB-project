@@ -28,27 +28,32 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <form>
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name"><br>
-                <input type="submit" value="Submit">
+            <form id="planForm" onsubmit="AddPlan();return false;">
+                <p>Add a new Plan</p>
+                <label for="nameinput">Name</label><br>
+                <input type="text" id="nameinput" name="name" class="textinput" required><br>
+                <label for="descriptioninput">Description</label><br>
+                <input type="text" id="descriptioninput" name="description" class="textinput" required><br>
+                <date for="dateinput">Date</date><br>
+                <input type="date" id="dateinput" name="date" class="textinput" required><br>
+                <input id="submitbtn" type="submit" value="Submit">
+                <div class="loaderdiv">
+                    <div class="loader" id="loader"></div>
+                </div>
             </form>
         </div>
     </div>
 
     <div id="main-content">
         <div id="plans">
-            <div class="plans-item">
-                <p>Plan 1</p>
-            </div>
-            <div class="plans-item">
-                <p>Plan 2</p>
-            </div>
-            <div class="plans-item">
-                <p>Plan 3</p>
-            </div>
             <button id="addplanbtn">+</button>
         </div>
     </div>
+    <script>
+        var modal = document.getElementById("myModal");
+        function submitFormRefresh() {
+            modal.style.display = "none";
+        }
+    </script>
     <script src="../js/plans.js"></script>
 </body>
