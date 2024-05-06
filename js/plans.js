@@ -34,6 +34,9 @@ function BuildPlans() {
     PlanCard.innerHTML = `<p class = "plan-itemID">Plan ${plan.PlanID} : ${plan.Title}</p>
     </br>
     <p class = "plan-itemDesc" >${plan.Description}</p>`;
+    PlanCard.onclick = function () {
+      window.location.href = "../plansPage/plandetails.html?planid=" + plan.PlanID;
+    };
     PlansGrid.appendChild(PlanCard);
   });
   let AddBtn = document.createElement("button");
@@ -44,7 +47,7 @@ function BuildPlans() {
 }
 
 function GetPlans() {
-  plansElement.hidden = true;
+  plansElement.style.display = "none";
   fetch(url + "/api/userplans", {
     method: "GET",
     headers: {
@@ -56,18 +59,19 @@ function GetPlans() {
       if (response.status == 200) {
         response.json().then((data) => {
           Plans = data;
+          BuildPlans();
         });
       } else if (response.status == 401) {
         localStorage.clear();
         window.location.href = "../loginPage/login.html";
       }
-      plansElement.hidden = false;
+
       BuildPlans();
     })
     .catch((err) => {
       console.error("Error: ", err);
-      plansElement.hidden = false;
     });
+  plansElement.style.display = "grid";
 }
 //Function for adding plans, turn submit button into loader and either show error or rebuild plans after adding
 function AddPlan() {
