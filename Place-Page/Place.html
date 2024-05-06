@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../placePage/place.css" />
+  <link rel="stylesheet" href="../Place-Page/place.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>place</title>
 </head>
 <script>
@@ -14,34 +15,48 @@
     $("#specialheader").load("../specialheader/specialheader.html");
   });
 </script>
-
 <body>
     <div id="specialheader"></div>
 
     <nav class="pictureselection">
-      <div class="arrow"></div>
+      <div class="arrow">
+        <i class="left fa-solid fa-chevron-left fa-5x" style="color: white;"></i>
+      </div>
       <div class="wrapper">
-        <div class="image active" >
+        <div class="image active visible" >
           <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.londonperfect.com/g/photos/upload/sml_302526596-1498570960-big-ben-westminster.jpg" alt="">
           <h3>big ben</h3>
         </div>  
+        <div class="image visible">
+          <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=570,fit=cover/g/photos/upload/302526596-1498568320-FA-87207603-houses-of-parliament.jpg" alt="">
+          <h3>big ben</h3>
+        </div>  
+        <div class="image visible">
+          <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.londonperfect.com/g/photos/upload/sml_302526596-1498570960-big-ben-westminster.jpg" alt="">
+          <h3>big ben</h3>
+        </div>  
+        <div class="image visible">
+          <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.londonperfect.com/g/photos/upload/sml_302526596-1498570960-big-ben-westminster.jpg" alt="">
+          <h3>big ben</h3>
+        </div> 
+        <div class="image">
+          <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.londonperfect.com/g/photos/upload/sml_302526596-1498570960-big-ben-westminster.jpg" alt="">
+          <h3>big ben</h3>
+        </div>  
+        <div class="image">
+          <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.londonperfect.com/g/photos/upload/sml_302526596-1498570960-big-ben-westminster.jpg" alt="">
+          <h3>big ben</h3>
+        </div>   
         <div class="image">
           <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=570,fit=cover/g/photos/upload/302526596-1498568320-FA-87207603-houses-of-parliament.jpg" alt="">
           <h3>big ben</h3>
         </div>  
-        <div class="image">
-          <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.londonperfect.com/g/photos/upload/sml_302526596-1498570960-big-ben-westminster.jpg" alt="">
-          <h3>big ben</h3>
-        </div>  
-        <div class="image">
-          <img src="https://www.londonperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.londonperfect.com/g/photos/upload/sml_302526596-1498570960-big-ben-westminster.jpg" alt="">
-          <h3>big ben</h3>
-        </div>  
       </div>
-      <div class="arrow"></div>
+      <div class="arrow">
+        <i class="right fa-solid fa-chevron-right fa-5x" style="color: white;"></i>
+      </div>
     </nav>
 </body>
 </script>
 <script src="../js/place.js"></script>
-
 </html>

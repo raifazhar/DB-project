@@ -1,7 +1,7 @@
-url = "https://db-project-api.vercel.app";
-// url = "http://localhost:3000";
+//url = "https://db-project-api.vercel.app";
+url = "http://localhost:3000";
 
-fetch(url + "/api/browser", {
+fetch("http://localhost:3000/api/browser", {
   method: "GET",
   headers: { "Content-Type": "application/json;charset=UTF-8" },
 })
@@ -22,7 +22,7 @@ searchbutton.addEventListener("click", function () {
 
 async function search(string) {
   console.log(string);
-  fetch(url + "/api/search?searchstring=" + string, {
+  fetch("http://localhost:3000/api/search?searchstring=" + string, {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
   })
