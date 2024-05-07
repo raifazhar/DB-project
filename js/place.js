@@ -1,10 +1,9 @@
 // Get the URL of the current page
 const urlplace = new URL(window.location.href);
 url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
+// url = "http://localhost:3000";
 // Get the value of a specific query parameter
 const id = urlplace.searchParams.get("id");
-//console.log(id); // Output: The value of the 'id' query parameter
 fetch(url + "/api/placepage?pageid=" + 1, {
   method: "GET",
   headers: { "Content-Type": "application/json;charset=UTF-8" },

@@ -4,7 +4,7 @@ if (!Number.isInteger(parseInt(id))) {
   window.location.href = "../homepage/homepage.html";
 }
 url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
+// url = "http://localhost:3000";
 //Global Variables
 htmlelement = document.querySelector("html")[0];
 var modal = document.getElementById("modalSelect");

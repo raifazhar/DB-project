@@ -4,7 +4,7 @@ let bio = document.querySelector(".profile.bio");
 let travelPrefs = document.querySelector(".profile.travelPrefs");
 let htmlelements = document.getElementsByTagName("html")[0];
 url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
+// url = "http://localhost:3000";
 
 async function updateProfile() {
   htmlelements.hidden = true;
