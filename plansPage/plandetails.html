@@ -34,7 +34,6 @@
         <div id="modalTimecontent" class="modal-content">
             <span id="closeTime" class="close">&times;</span>
             <div id="modalTimeHeader">
-                PlaceHolder
             </div>
             <div id="modalTimeInputdiv">
                 <date for="dateinput">Date</date>
@@ -44,9 +43,11 @@
         </div>
     </div>
     <div id="main-content">
-        <div>
+        <div id="topRow">
             <button id="savePlan" onclick="SetPlanDetails()"> Save Plan</button>
-
+            <div class="loaderdiv">
+                <div class="loader" id="loader"></div>
+            </div>
         </div>
         <div id="plandestinations">
             <ul id="destinationlist">

@@ -36,26 +36,6 @@ body
 #destinationlist li:hover{
     background-color: lightgreen;
 }
-#savePlan{
-    margin: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    background-color: greenyellow;
-    transition: 0.5s;
-}
-#savePlan:hover{
-    background-color: lightgreen;
-}
-
-
-
-
-
-
-
 
 
 .modal {
@@ -136,4 +116,46 @@ align-self: flex-end;
         background-color: white;
         margin: 2px 0;
         cursor: pointer;
+  }
+#topRow{
+    display: flex;
+    align-items: center;
+}
+
+#savePlan{
+  display: block;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: greenyellow;
+  transition: 0.5s;
+}
+#savePlan:hover{
+  background-color: lightgreen;
+}
+.loaderdiv{
+  padding: 20px 60px;
+}
+.loader {
+    display: none;
+    margin: auto;
+    border: 4px solid aqua;
+    border-top: 4px solid beige;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
