@@ -31,54 +31,89 @@ fetch("http://localhost:3000" + "/api/placepage?pageid=" + 1, {
   }
 });
 
-const imagelist = document.querySelectorAll(".image");
-imagelist.forEach(element => {
-    element.addEventListener("click", function () {
-        imagelist.forEach(element => {element.classList.remove("active")})
-        element.classList.add("active");
-        overidebackground(element)
-       
-      });
-});
+
 
 const right=document.querySelector(".right")
 const left=document.querySelector(".left")
 const container=document.querySelectorAll(".image")
 currentIndex=0
+activeindex=0
+// container.forEach((element ,index) => {
+  
+//     element.addEventListener("click", function () {
+//         container.forEach(element => {element.classList.remove("active")})
+//         element.classList.add("active");
+//         activeindex=index
+//         overidebackground(element)
+//         index++;
+//       });
+// });
+
+for(let j=0; j<container.length;j++)
+{
+  container[j].addEventListener("click", function () {
+    container.forEach(element => {element.classList.remove("active")})
+    container[j].classList.add("active");
+    activeindex=j
+    overidebackground(container[j])
+  });
+}
 right.addEventListener("click",function(){
-  console.log(container.length)
-  if (currentIndex < container.length - 4) {
-    container[currentIndex].classList.remove('visible');
-    if(container[currentIndex].classList.contains('active'))
-    {
-      container[currentIndex].classList.remove('active');
-      container[currentIndex+1].classList.add('active')
-      overidebackground(container[currentIndex+1])
-    }
-    currentIndex++;
-    container[currentIndex+3].classList.add('visible');
-  }
+  moveelementright(1)
+ 
 })
 left.addEventListener("click",function(){
-  if (currentIndex >= 1) {
-    console.log("left")
-    container[currentIndex+3].classList.remove('visible');
-    if(container[currentIndex+3].classList.contains('active'))
-    {
-      container[currentIndex+3].classList.remove('active');
-      container[currentIndex+2].classList.add('active')
-      overidebackground(container[currentIndex+2])
-
-    }
-    currentIndex--;
-    container[currentIndex].classList.add('visible');
-  }
+  moveelementleft(1)
 })
 
 function overidebackground(element)
 {
   const imgChild = element.querySelector("img");
   document.body.style.background=`url(${imgChild.getAttribute("src")}) no-repeat top/cover`; 
+}
+function moveelementright(times)
+{
+  for(let i=0 ;i<times ;i++)
+  {
+    if (currentIndex < container.length - 4 && activeindex-currentIndex>=1)
+    {
+      container[currentIndex].classList.remove('visible')
+
+
+      currentIndex++;
+      container[currentIndex+3].classList.add("visible")
+
+      
+    }
+    if(activeindex<container.length-1)
+    {
+      container[activeindex].classList.remove('active')
+      activeindex++
+      container[activeindex].classList.add('active')
+      overidebackground(container[activeindex])
+    }
+  } 
+}
+function moveelementleft(times)
+{
+  for(let i=0 ;i<times ;i++)
+  {
+    if (currentIndex >=1 && activeindex-currentIndex<2)
+    {
+      container[currentIndex+3].classList.remove('visible')
+     
+      currentIndex--;
+      container[currentIndex].classList.add("visible")
+
+    }
+    if(activeindex>=1)
+    {
+      container[activeindex].classList.remove('active')
+      activeindex--
+      container[activeindex].classList.add('active')
+      overidebackground(container[activeindex])
+    }
+  }
 }
 
 
