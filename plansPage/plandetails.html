@@ -25,33 +25,31 @@
     <div id="specialheader"></div>
     <div id="modalSelect" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span id="closeSelect" class="close">&times;</span>
             <ul id="modaldestinationlist">
-                <li>
-                    aaa
-                </li>
-                <li>
-                    bbb
-                </li>
-                <li>
-                    ccc
-                </li>
             </ul>
+        </div>
+    </div>
+    <div id="modalTime" class="modal">
+        <div id="modalTimecontent" class="modal-content">
+            <span id="closeTime" class="close">&times;</span>
+            <div id="modalTimeHeader">
+                PlaceHolder
+            </div>
+            <div id="modalTimeInputdiv">
+                <date for="dateinput">Date</date>
+                <input type="date" id="dateinput" name="date" class="textinput" required><br>
+            </div>
+            <input id="submitbtn" onclick="AddSelectedDestinationToPlan()" type="submit" value="OK">
         </div>
     </div>
     <div id="main-content">
         <div>
-            <button id="savePlan">Save Plan</button>
+            <button id="savePlan" onclick="SetPlanDetails()"> Save Plan</button>
 
         </div>
         <div id="plandestinations">
             <ul id="destinationlist">
-                <li>
-                    AAa
-                </li>
-                <li>
-                    AAA
-                </li>
                 <button id="add-destination">+</button>
             </ul>
         </div>
