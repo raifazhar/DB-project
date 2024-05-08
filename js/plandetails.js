@@ -4,9 +4,8 @@ if (!Number.isInteger(parseInt(id))) {
   window.location.href = "../homepage/homepage.html";
 }
 url = "https://db-project-api.vercel.app";
-// url = "http://localhost:3000";
+url = "http://localhost:3000";
 //Global Variables
-htmlelement = document.querySelector("html")[0];
 var modal = document.getElementById("modalSelect");
 var modal2 = document.getElementById("modalTime");
 var span = document.getElementById("closeSelect");
@@ -14,6 +13,7 @@ var span2 = document.getElementById("closeTime");
 var btn = document.getElementById("add-destination");
 let loader = document.getElementById("loader");
 let saveButton = document.getElementById("savePlan");
+let scroller = document.getElementById("scroller");
 let isOwner = false;
 destinations = [];
 let selectedDestinationID;
@@ -72,7 +72,6 @@ let binarySearchDestination = function (x) {
 };
 
 async function GetPlanDetails() {
-  htmlelement.hidden = true;
   const response = await fetch(`${url}/api/userplans/details?planID=${id}`, {
     method: "GET",
     headers: {
@@ -86,7 +85,11 @@ async function GetPlanDetails() {
     planDetails = [];
     for (let i = 0; i < details.length; i++) {
       let index = binarySearchDestination(details[i].DestinationID);
-      planDetails.push({ id: index, date: new Date(details[i].Date), destinationID: details[i].DestinationID });
+      planDetails.push({
+        id: index,
+        date: new Date(details[i].Date),
+        destinationID: details[i].DestinationID,
+      });
     }
     if (data.status === 1) {
       isOwner = true;
@@ -98,7 +101,6 @@ async function GetPlanDetails() {
     }
     BuildPlanDetails();
   }
-  htmlelement.hidden = false;
 }
 async function SetPlanDetails() {
   loader.style.display = "block";
@@ -130,7 +132,11 @@ function AddSelectedDestinationToPlan() {
   }
   modal2.style.display = "none";
   document.getElementById("dateinput").value = "";
-  planDetails.push({ id: selectedDestinationIndex, date: date, destinationID: selectedDestinationID });
+  planDetails.push({
+    id: selectedDestinationIndex,
+    date: date,
+    destinationID: selectedDestinationID,
+  });
   selectedDestinationID = null;
   selectedDestinationIndex = null;
   BuildPlanDetails();
@@ -146,17 +152,24 @@ function BuildPlanDetails() {
     let li = document.createElement("li");
     let name = destinations[planDetail.id].DestinationName;
     let date = planDetail.date.toISOString().split("T")[0];
-    let innerhtml = `<div class="card">
+    let divcard = document.createElement("div");
+    li.style.background = "url(" + destinations[planDetail.id].Thumbnail + ") no-repeat center/cover";
+    divcard.className = "card";
+    divcard.style.height = "100%";
+    let innerhtml = `
     <div class="card-body">
       <h5 class="card-title">${name}</h5>
       <p class="card-text">${date}</p>
       </div>
-      </div>`;
+      <div class="card-description">
+      <p>${destinations[planDetail.id].Description}</p>
+      
+      `;
+    divcard.innerHTML = innerhtml;
     if (isOwner) {
-      li.innerHTML = `<span class="close">&times;</span>${innerhtml}`;
-    } else {
-      li.innerHTML = innerhtml;
+      li.innerHTML = `<span id="cardclose" class="close">&times;</span>`;
     }
+    li.append(divcard);
     li.children[0].onclick = function () {
       planDetails = planDetails.filter((plan) => plan.id != planDetail.id);
       BuildPlanDetails();
@@ -170,6 +183,17 @@ function BuildPlanDetails() {
     destinationlist.appendChild(btn);
     InitializeButton();
   }
+  //Once Destination List is built we also build the scroller
+  let ul = document.createElement("ul");
+  for (let i = 0; i < planDetails.length; i++) {
+    let li = document.createElement("li");
+    li.onclick = function () {
+      let element = document.getElementById("destinationlist").children[i];
+      element.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+    };
+    ul.appendChild(li);
+  }
+  scroller.appendChild(ul);
 }
 
 function BuildDestinations() {

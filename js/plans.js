@@ -1,6 +1,6 @@
 plansElement = document.getElementById("plans");
 url = "https://db-project-api.vercel.app";
-// url = "http://localhost:3000";
+url = "http://localhost:3000";
 //Intitialize modal menu for adding plans
 var modal = document.getElementById("myModal");
 var btn;
@@ -45,32 +45,28 @@ function BuildPlans() {
   PlansGrid.appendChild(AddBtn);
   InitializeButton();
 }
-
-function GetPlans() {
+//Get Plans and build plansgrid. Disable plansgrid while building and reenable after building
+async function GetPlans() {
   plansElement.style.display = "none";
-  fetch(url + "/api/userplans", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json;charset=UTF-8",
-      "x-auth-token": localStorage.getItem("token"),
-    },
-  })
-    .then((response) => {
-      if (response.status == 200) {
-        response.json().then((data) => {
-          Plans = data;
-          BuildPlans();
-        });
-      } else if (response.status == 401) {
-        localStorage.clear();
-        window.location.href = "../loginPage/login.html";
-      }
-
-      BuildPlans();
-    })
-    .catch((err) => {
-      console.error("Error: ", err);
+  try {
+    let response = await fetch(url + "/api/userplans", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+        "x-auth-token": localStorage.getItem("token"),
+      },
     });
+    if (response.status == 200) {
+      let data = await response.json();
+      Plans = data;
+    } else if (response.status == 401) {
+      localStorage.clear();
+      window.location.href = "../loginPage/login.html";
+    }
+    BuildPlans();
+  } catch (err) {
+    console.error("Error: ", err);
+  }
   plansElement.style.display = "grid";
 }
 //Function for adding plans, turn submit button into loader and either show error or rebuild plans after adding
