@@ -5,6 +5,68 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.info
+{
+    position: absolute;
+    width: 30vw;
+    left: 12%;
+    top:20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10vh;
+}
+.description
+{   
+    text-align: left;
+    height: 20vh;
+    overflow-y: scroll;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: smaller;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+}
+/* width */
+.description::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+ 
+  /* Handle */
+.description::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255,0.5); 
+  }
+  
+  /* Handle on hover */
+.description::-webkit-scrollbar-thumb:hover {
+    background:rgba(255, 255, 255,0.7); 
+  }
+
+.add-to-plan
+{
+    position: absolute;
+    bottom:20%;
+    left:12%;
+    width: fit-content;
+    height: 6vh;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+   border: 2px solid black;
+    border-radius: 30px; /* Adjust the border radius as needed */
+    transition: 0.3s ease;
+    font-size:70%;
+    font-weight: bold;
+}
+.add-to-plan:hover
+{
+    transform: scale(1.2);
+    transition: 0.3s ease;
+    background-color:rgba(65, 184, 235, 0.9);
+}
 .pictureselection
 {
     display: flex;
