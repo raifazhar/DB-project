@@ -86,7 +86,11 @@ async function GetPlanDetails() {
     planDetails = [];
     for (let i = 0; i < details.length; i++) {
       let index = binarySearchDestination(details[i].DestinationID);
-      planDetails.push({ id: index, date: new Date(details[i].Date), destinationID: details[i].DestinationID });
+      planDetails.push({
+        id: index,
+        date: new Date(details[i].Date),
+        destinationID: details[i].DestinationID,
+      });
     }
     if (data.status === 1) {
       isOwner = true;
@@ -130,7 +134,11 @@ function AddSelectedDestinationToPlan() {
   }
   modal2.style.display = "none";
   document.getElementById("dateinput").value = "";
-  planDetails.push({ id: selectedDestinationIndex, date: date, destinationID: selectedDestinationID });
+  planDetails.push({
+    id: selectedDestinationIndex,
+    date: date,
+    destinationID: selectedDestinationID,
+  });
   selectedDestinationID = null;
   selectedDestinationIndex = null;
   BuildPlanDetails();
@@ -146,17 +154,24 @@ function BuildPlanDetails() {
     let li = document.createElement("li");
     let name = destinations[planDetail.id].DestinationName;
     let date = planDetail.date.toISOString().split("T")[0];
-    let innerhtml = `<div class="card">
+    let divcard = document.createElement("div");
+    divcard.className = "card";
+    divcard.style.background =
+      "url(" +
+      destinations[planDetail.id].Thumbnail +
+      ") no-repeat center/cover";
+    divcard.style.height = "100%";
+    let innerhtml = `
     <div class="card-body">
       <h5 class="card-title">${name}</h5>
       <p class="card-text">${date}</p>
       </div>
-      </div>`;
+      `;
+    divcard.innerHTML = innerhtml;
     if (isOwner) {
-      li.innerHTML = `<span class="close">&times;</span>${innerhtml}`;
-    } else {
-      li.innerHTML = innerhtml;
+      li.innerHTML = `<span class="close">&times;</span>`;
     }
+    li.append(divcard);
     li.children[0].onclick = function () {
       planDetails = planDetails.filter((plan) => plan.id != planDetail.id);
       BuildPlanDetails();

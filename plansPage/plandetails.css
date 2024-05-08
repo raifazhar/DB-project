@@ -27,14 +27,11 @@ body
 
 }
 #destinationlist li{
-    height: 200px;
+    height: 500px;
     width: 100%;
+    margin-bottom: 10px;
     text-align: center;
-    background-color: green;
     transition: 0.5s;
-}
-#destinationlist li:hover{
-    background-color: lightgreen;
 }
 
 
