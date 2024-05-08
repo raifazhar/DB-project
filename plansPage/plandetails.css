@@ -3,11 +3,12 @@
 }
 body
 {
+
     overflow-x: hidden;
-    background-color: grey;
+    background-color: rgb(35, 43, 77);
 }
 #main-content{
-   padding-top: 10vh; 
+   padding-top: 11vh; 
 }
 #add-destination{
     margin: 20px;
@@ -30,10 +31,81 @@ body
     height: 500px;
     width: 100%;
     margin-bottom: 10px;
-    text-align: center;
-    transition: 0.5s;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 34px;
+  font-weight: bold;
 }
 
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#cardclose{
+  margin: 10px;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 0px 10px;
+  color: rgb(255, 62, 62);
+  background-color: rgb(0,0,0,0.5);
+  backdrop-filter: blur(20px);
+  transition: 0.3s;
+}
+#cardclose:hover,
+  #cardclose:focus {
+    color: lightcoral;
+    text-decoration: none;
+    cursor: pointer;
+  }
+.card-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transition: 0.5s;
+}
+.card-title{
+    padding: 10px;
+    color: white;
+    background-color: rgb(0,0,0,0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 0px 0px 10px 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.card-text{
+  padding: 7px;
+  color: white;
+  height: fit-content;
+  background-color: rgb(0,0,0,0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 0px 0px 10px 10px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+.card-description{
+  margin: 20px;
+  padding: 7px;
+  color: white;
+  height: fit-content;
+  width: fit-content;
+  background-color: rgb(0,0,0,0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bolder;
+  align-self: flex-end;
+}
 
 .modal {
     display: none; /* Hidden by default */
@@ -56,19 +128,7 @@ body
     width: 80%; /* Could be more or less, depending on screen size */
   }
   
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
   
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
 
 #modalTimecontent{
   display: flex;
@@ -117,21 +177,22 @@ align-self: flex-end;
 #topRow{
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 #savePlan{
+  position: absolute;
   display: block;
-  margin: 20px;
   padding: 10px;
   border-radius: 10px;
   font-size: 20px;
+  font-weight: bolder;
   border: none;
   cursor: pointer;
-  background-color: greenyellow;
+  color: rgb(42, 52, 65);
+  background-color: rgb(97, 255, 137);
   transition: 0.5s;
-}
-#savePlan:hover{
-  background-color: lightgreen;
 }
 .loaderdiv{
   padding: 20px 60px;
@@ -155,4 +216,26 @@ align-self: flex-end;
     100% {
         transform: rotate(360deg);
     }
+}
+
+#scroller{
+    position: fixed;
+    right: 20px;
+    top: 35%;
+    z-index: 5;
+    color: white;
+    border-radius: 10px;
+    backdrop-filter: invert(100%) blur(20px) brightness(50%);
+}
+#scroller ul{
+    list-style: none;
+    padding: 0;
+}
+#scroller ul li{
+  height: 10px;
+  width: 10px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
 }
