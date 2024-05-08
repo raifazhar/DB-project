@@ -41,7 +41,6 @@ function InitializeButton() {
     modal.style.display = "block";
   };
 }
-InitializeButton();
 
 //Actual functionality
 async function GetDestinations() {
@@ -176,16 +175,15 @@ function BuildPlanDetails() {
     };
     destinationlist.appendChild(li);
   });
-  if (isOwner) {
-    let btn = document.createElement("button");
-    btn.innerHTML = "+";
-    btn.id = "add-destination";
-    destinationlist.appendChild(btn);
-    InitializeButton();
-  }
   //Once Destination List is built we also build the scroller
   let ul = document.createElement("ul");
+  let numgroups;
   for (let i = 0; i < planDetails.length; i++) {
+    numgroups = Math.floor(planDetails.length / 7);
+  }
+  console.log(numgroups);
+  console.log(planDetails.length);
+  for (let i = 0; i < planDetails.length; i += numgroups) {
     let li = document.createElement("li");
     li.onclick = function () {
       let element = document.getElementById("destinationlist").children[i];
@@ -194,6 +192,13 @@ function BuildPlanDetails() {
     ul.appendChild(li);
   }
   scroller.appendChild(ul);
+  if (isOwner) {
+    let btn = document.createElement("button");
+    btn.innerHTML = "+";
+    btn.id = "add-destination";
+    scroller.appendChild(btn);
+    InitializeButton();
+  }
 }
 
 function BuildDestinations() {
