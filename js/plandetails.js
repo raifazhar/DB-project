@@ -162,7 +162,7 @@ function BuildPlanDetails() {
       </div>
       <div class="card-description">
       <p>${destinations[planDetail.id].Description}</p>
-      
+      </div>
       `;
     divcard.innerHTML = innerhtml;
     if (isOwner) {
