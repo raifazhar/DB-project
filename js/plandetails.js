@@ -4,7 +4,7 @@ if (!Number.isInteger(parseInt(id))) {
   window.location.href = "../homepage/homepage.html";
 }
 url = "https://db-project-api.vercel.app";
-// url = "http://localhost:3000";
+url = "http://localhost:3000";
 //Global Variables
 htmlelement = document.querySelector("html")[0];
 var modal = document.getElementById("modalSelect");
@@ -156,10 +156,7 @@ function BuildPlanDetails() {
     let date = planDetail.date.toISOString().split("T")[0];
     let divcard = document.createElement("div");
     divcard.className = "card";
-    divcard.style.background =
-      "url(" +
-      destinations[planDetail.id].Thumbnail +
-      ") no-repeat center/cover";
+    divcard.style.background = "url(" + destinations[planDetail.id].Thumbnail + ") no-repeat center/cover";
     divcard.style.height = "100%";
     let innerhtml = `
     <div class="card-body">

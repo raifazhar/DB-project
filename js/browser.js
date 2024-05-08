@@ -1,5 +1,5 @@
 url = "https://db-project-api.vercel.app";
-// url = "http://localhost:3000";
+url = "http://localhost:3000";
 
 fetch(url + "/api/browser", {
   method: "GET",
@@ -21,7 +21,6 @@ searchbutton.addEventListener("click", function () {
 });
 
 async function search(string) {
-  console.log(string);
   fetch(url + "/api/search?searchstring=" + string, {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
@@ -48,15 +47,15 @@ async function reorganizebrowser(response) {
     var browserli = document.createElement("li");
     var browsertitle = document.createElement("div");
     browsertitle.classList.add("broswercell-textcontainer");
-    browsertitle.innerHTML = `<a href="" class="browsercell-title">${element.title}</a>`;
+    browsertitle.innerHTML = `<a href="" class="browsercell-title">${element.Name}</a>`;
     var browserimg = document.createElement("img");
-    browserimg.setAttribute("src", element.url);
+    browserimg.setAttribute("src", element.Thumbnail);
     browserimg.classList.add("browsercell-image");
     browserli.appendChild(browsertitle);
     browserli.appendChild(browserimg);
-    browserli.setAttribute("data-picture-id", element.pictureID);
+    browserli.setAttribute("data-picture-id", element.PlaceID);
     browserli.addEventListener("click", function () {
-      getpage(element.pictureID);
+      getpage(element.PlaceID);
     });
     browsercontainer.appendChild(browserli);
   });
