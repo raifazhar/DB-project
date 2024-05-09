@@ -175,21 +175,36 @@ function BuildPlanDetails() {
     };
     destinationlist.appendChild(li);
   });
+  scroller.innerHTML = "";
   //Once Destination List is built we also build the scroller
   let ul = document.createElement("ul");
-  let numgroups;
-  for (let i = 0; i < planDetails.length; i++) {
-    numgroups = Math.floor(planDetails.length / 7);
-  }
-  console.log(numgroups);
-  console.log(planDetails.length);
-  for (let i = 0; i < planDetails.length; i += numgroups) {
+  //IF number of destinations is greater than 10, we start to group them
+  let dots = 10;
+  if (planDetails.length < dots) dots = planDetails.length;
+  let distribution = Array(dots).fill(Math.floor(planDetails.length / dots));
+  for (let i = 0; i < planDetails.length % dots; i++) distribution[i]++;
+  //Move each element forward by one then do cumulative sum
+  for (let i = dots - 2; i > 0; i--) distribution[i + 1] = distribution[i];
+  distribution[0] = 0;
+  for (let i = 1; i < dots; i++) distribution[i] += distribution[i - 1];
+  for (let i = 0; i < dots; i++) {
+    let containerdiv = document.createElement("div");
+    containerdiv.className = "dotcontainer";
     let li = document.createElement("li");
     li.onclick = function () {
-      let element = document.getElementById("destinationlist").children[i];
+      let element = document.getElementById("destinationlist").children[distribution[i]];
       element.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
     };
-    ul.appendChild(li);
+    containerdiv.appendChild(li);
+    let div = document.createElement("div");
+    div.className = "dotinfo";
+    div.innerHTML = `${destinations[planDetails[distribution[i]].id].DestinationName}`;
+    div.style.display = "block";
+    containerdiv.appendChild(div);
+    ul.appendChild(containerdiv);
+    let line = document.createElement("div");
+    line.className = "line";
+    ul.appendChild(line);
   }
   scroller.appendChild(ul);
   if (isOwner) {
