@@ -59,11 +59,9 @@ right.addEventListener("click", function () {
 left.addEventListener("click", function () {
   moveelementleft();
   if (activeindex >= 1) {
-    console.log(container[activeindex])
     container[activeindex].classList.remove("active");
     activeindex--;
     container[activeindex].classList.add("active");
-    console.log(container[activeindex])
     overidebackground(container[activeindex]);
   }
 });
@@ -72,23 +70,52 @@ function overidebackground(element) {
   const imgChild = element.querySelector("img");
   const titleelement=element.querySelector("h3")
   document.body.style.background = `url(${imgChild.getAttribute("src")}) no-repeat top/cover`;
-  console.log(titleelement)
-  console.log(title)
   title.textContent=titleelement.textContent;
 }
+const wrapper=document.querySelector(".wrapper")
 function moveelementright() {
-  if (currentIndex < container.length - 4 && activeindex - currentIndex >= 1) {
-    container[currentIndex].classList.remove("visible");
+  console.log("current index is "+ currentIndex)
+  console.log("active index is "+ activeindex)
+  if (currentIndex < container.length - 4 && activeindex - currentIndex > 1) {
+    // container[currentIndex].classList.remove("visible");
 
+    // currentIndex++;
+    // container[currentIndex + 3].classList.add("visible");
+    const img=container[currentIndex].querySelector("img")
     currentIndex++;
-    container[currentIndex + 3].classList.add("visible");
+    const targetScrollLeft=img.width+2*window.innerWidth / 100+4+wrapper.scrollLeft
+    handleScrollEnd(targetScrollLeft)
   }
   
 }
 function moveelementleft() {
-  if (currentIndex >= 1 && activeindex - currentIndex < 2) {
-    container[currentIndex + 3].classList.remove("visible");
+  if (currentIndex >= 1 && activeindex - currentIndex <=1) {
+    // container[currentIndex + 3].classList.remove("visible");
+    // currentIndex--;
+    // container[currentIndex].classList.add("visible");
+    const img=container[currentIndex].querySelector("img")
     currentIndex--;
-    container[currentIndex].classList.add("visible");
+    const targetScrollLeft=-img.width-2*window.innerWidth / 100-4+wrapper.scrollLeft
+    handleScrollEnd(targetScrollLeft)
   }  
+}
+
+function handleScrollEnd(targetScrollLeft) {
+  let isScrolling=false
+  if (isScrolling) {
+    wrapper.scrollTo({ left: targetScrollLeft }); // Instant jump to target position
+  } else {
+    // Smoothly scroll to the target position
+    wrapper.scrollTo({
+      left: targetScrollLeft,
+      behavior: "smooth"
+    });
+  }
+  // Remove the event listener once scrolling is done
+  wrapper.addEventListener("scroll",()=>{
+    isScrolling = false; // Reset the scrolling flag
+    console.log("Scrolling completed!");
+    
+  })
+  
 }

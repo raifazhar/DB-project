@@ -9,7 +9,7 @@ body{
 .info
 {
     position: absolute;
-    width: 30vw;
+    width: 50vw;
     left: 12%;
     top:20%;
     display: flex;
@@ -20,6 +20,7 @@ body{
 .description
 {   
     text-align: left;
+    max-width: 30vw;
     height: 20vh;
     overflow-y: scroll;
     color: white;
@@ -27,6 +28,14 @@ body{
     font-size: smaller;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 30px;
+}
+.title
+{
+    font-size:10vh;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-family:serif;
 }
 /* width */
 .description::-webkit-scrollbar {
@@ -65,7 +74,8 @@ body{
 {
     transform: scale(1.2);
     transition: 0.3s ease;
-    background-color:rgba(65, 184, 235, 0.9);
+    background-color:rgba(65, 184, 235, 1);
+    color: white;
 }
 .pictureselection
 {
@@ -84,18 +94,23 @@ body{
     width: 80%;
     display: flex;
     justify-content: space-between;
+    overflow-x: scroll;
+    overflow-y: hidden;
     gap: 2vw;
+}
+.wrapper::-webkit-scrollbar {
+    display: none;
 }
 .image
 {
-    width: 25%;
+    min-width: 22%;
+    max-width: 22%;
     height: 100%;
     border: solid 2px white;
     border-radius: 10%;
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
     overflow: hidden;
-    display: none;
 }
 .image:hover
 {
@@ -116,10 +131,6 @@ body{
 {
     background-color: white;
     color: black;
-}
-.visible
-{
-    display: block;
 }
 .arrow{
     width: 10%;
