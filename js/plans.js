@@ -31,6 +31,10 @@ function BuildPlans() {
   Plans.forEach((plan) => {
     let PlanCard = document.createElement("div");
     PlanCard.className = "plans-item";
+    if (plan.Thumbnail != null && plan.Thumbnail != "") {
+      PlanCard.style.background = `url("${plan.Thumbnail}") no-repeat center center`;
+      PlanCard.style.backgroundSize = "auto 100%";
+    }
     PlanCard.innerHTML = `<p class = "plan-itemID">Plan ${plan.PlanID} : ${plan.Title}</p>
     </br>
     <p class = "plan-itemDesc" >${plan.Description}</p>`;

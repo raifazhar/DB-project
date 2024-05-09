@@ -99,6 +99,8 @@ async function GetPlanDetails() {
       btn.hidden = true;
     }
     BuildPlanDetails();
+  } else {
+    alert("Error Fetching Plan Details");
   }
 }
 async function SetPlanDetails() {
