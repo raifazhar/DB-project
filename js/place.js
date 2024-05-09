@@ -76,7 +76,7 @@ const wrapper=document.querySelector(".wrapper")
 function moveelementright() {
   console.log("current index is "+ currentIndex)
   console.log("active index is "+ activeindex)
-  if (currentIndex < container.length - 4 && activeindex - currentIndex > 1) {
+  if (currentIndex < container.length - 4 && activeindex - currentIndex >= 1) {
     // container[currentIndex].classList.remove("visible");
 
     // currentIndex++;
