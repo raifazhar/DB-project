@@ -13,6 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"
+        type='text/css'>
 </head>
 <script>
     $(function () {
@@ -23,28 +25,83 @@
 <body>
     <div id="specialheader"></div>
 
-    <section id="profilepage">
-        <div id="profileheader">
-            <img class="profile picture" height=150 src="../assets/images/backgroundfog.jpg">
-            </img>
-            <div id="profileBio">
-                <p class="profile name">
-                    Profile Name
-                </p>
-                <p class="profile travelPrefs">
-                    Profile TravelPrefs
-                </p>
-                <p class="profile bio">
-                    Profile BIO
-                </p>
-            </div>
-        </div>
+    <div class="parallax" id="parallaxdiv">
+        <img src="../Backgrounds/fairyMeadows/1.png" data-speedx="0.15" data-speedy="0.1" style="z-index: 2"
+            class="parallax img1" />
+        <img src=" ../Backgrounds/fairyMeadows/2.png" data-speedx="0.17" data-speedy="0.11" style="z-index: 3"
+            class="parallax img2" />
+        <img src=" ../Backgrounds/fairyMeadows/3.png" data-speedx="0.18" data-speedy="0.125" style="z-index: 4"
+            class="parallax img3" />
+        <h1 style="z-index: 5" data-speedx="1" data-speedy="0.2" class="parallax text">FAIRY MEADOWS</h1>
+        <img src=" ../Backgrounds/fairyMeadows/4.png" data-speedx="0.22" data-speedy="0.13" style="z-index: 6"
+            class="parallax img4" />
+        <img src=" ../Backgrounds/fairyMeadows/5.png" data-speedx="0.25" data-speedy="0.15" style="z-index: 7"
+            class="parallax img5" />
+    </div>
+    <div id="blocker">
 
+    </div>
+    <div id="main-content">
+        <section id="profilepage">
+            <div id="profileheader">
+                <div id="profileBio">
+                    <div id="namediv">
+                        <p class="profile name" id="name">
+                            Profile Name
+                        </p>
+                        <button class="editBtn" id="editName"><i class="far fa-edit"></i></button>
+                    </div>
+                    <div id="travelPrefsdiv">
+                        <h1 id="travelPrefshead">My Travel Preferences : </h1>
+                        <p class="profile travelPrefs" id="travelPrefs">
+                        </p>
+                        <button class="editBtn" id="editPrefs"><i class="far fa-edit"></i></button>
+                    </div>
+                    <div id="biodiv">
+                        <h1>
+                            About Me :
+                        </h1>
+                        <p class="profile bio" id="bio">
+                            Profile BIO
+                        </p>
+                        <button class="editBtn" id="editBio"><i class="far fa-edit"></i></button>
+                    </div>
+                    <button id="savebtn" onclick="SaveProfile()">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
     </section>
-    <script src="../js/profile.js"></script>
     <script>
-        window.addEventListener('checkUserFinished', updateProfile);
+        namebtn = document.getElementById("editName");
+        prefsbtn = document.getElementById("editPrefs");
+        biobtn = document.getElementById("editBio");
+        namefield = document.getElementById("name");
+        prefsfield = document.getElementById("travelPrefs");
+        biofield = document.getElementById("bio");
+        namebtn.addEventListener("click", function () {
+            enableContentEdit("name");
+        });
+        prefsbtn.addEventListener("click", function () {
+            enableContentEdit("travelPrefs");
+        });
+        biobtn.addEventListener("click", function () {
+            enableContentEdit("bio");
+        });
+        namefield.addEventListener("blur", function () {
+            disableContentEdit("name");
+        });
+        prefsfield.addEventListener("blur", function () {
+            disableContentEdit("travelPrefs");
+        });
+        biofield.addEventListener("blur", function () {
+            disableContentEdit("bio");
+        });
     </script>
+    <script src="../js/animation.js"></script>
+    <script src="../js/profile.js"></script>
 </body>
 
 </html>

@@ -168,7 +168,12 @@ function BuildPlanDetails() {
       `;
     divcard.innerHTML = innerhtml;
     if (isOwner) {
-      li.innerHTML = `<span id="cardclose" class="close">&times;</span>`;
+      let closebutton = document.createElement("button");
+      closebutton.className = "deleteBtn";
+      let icon = document.createElement("i");
+      icon.className = "fa fa-trash";
+      closebutton.appendChild(icon);
+      li.append(closebutton);
     }
     li.append(divcard);
     li.children[0].onclick = function () {

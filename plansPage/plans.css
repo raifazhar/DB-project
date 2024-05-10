@@ -14,7 +14,7 @@ body
 #plans{
     border-radius: 20px;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
     padding: 2%;
@@ -137,7 +137,7 @@ body
     cursor: pointer;
   }
 .deleteBtn{
-color: darkred;
+color: red;
 background-color: rgba(0,0,0,0);
 border: none;
 position: absolute;
@@ -147,7 +147,7 @@ z-index: 20;
 transition: 0.2s;
 }
 .deleteBtn:hover{
-  color: red;
+  color: darkred;
   cursor: pointer;
 }
 .loaderdiv{

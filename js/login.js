@@ -28,6 +28,7 @@ function validateLoginForm() {
         document.getElementById("error").style.display = "block";
         document.getElementById("error").textContent = responsejson["message"];
       } else {
+        localStorage.setItem("id", responsejson["user"]["id"]);
         localStorage.setItem("email", responsejson["user"]["email"]);
         localStorage.setItem("username", responsejson["user"]["username"]);
         localStorage.setItem("type", responsejson["user"]["type"]);
