@@ -35,7 +35,8 @@ function BuildPlans() {
       PlanCard.style.background = `url("${plan.Thumbnail}") no-repeat center center`;
       PlanCard.style.backgroundSize = "auto 100%";
     }
-    PlanCard.innerHTML = `<span class="close" id="planClose">&times;</span><p class = "plan-itemID">Plan ${plan.PlanID} : ${plan.Title}</p>
+    PlanCard.innerHTML = `<button class="deleteBtn"><i class="fa fa-trash"></i></button>
+    <p class = "plan-itemID">Plan ${plan.PlanID} : ${plan.Title}</p>
     </br>
     <p class = "plan-itemDesc" >${plan.Description}</p>`;
     PlanCard.onclick = function () {
