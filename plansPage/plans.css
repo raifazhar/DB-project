@@ -3,35 +3,44 @@
 }
 body
 {
-    overflow-x: hidden;
-    background-color: grey;
 }
 #main-content{
+  height: 100%;
+  width: 100%;
    padding-top: 10vh; 
+   position: absolute;
+   z-index: 10;
 }
 #plans{
     border-radius: 20px;
     display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: darkgray;
+    grid-template-columns: auto auto auto auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
     padding: 2%;
-    margin: 5%;
+    margin:  3% auto;
+    justify-content: center;
+    width: fit-content;
    }
 .plans-item{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    place-items: center;
-    background-color: rgba(255, 0, 0, 0.5);
     border-radius: 20px;
+    height: 80px;
+    width: 200px;
     padding: 40px;
     margin: 10px;
     font-size: 20px;
     text-align: center;
     cursor: pointer;
     transition: 0.5s;
+    background-color: rgba(255, 255, 255,0.5);
+   
 }
 .plans-item:hover{
-    background-color: rgba(255, 255, 0, 1.0);
     transform: scale(1.1);
 }
 .plan-itemID{
@@ -40,8 +49,19 @@ body
   width: 100%;
   border-radius: 20px 20px 0 0;
   top: 0;
+  backdrop-filter: blur(10px);
 }
-
+.plan-itemDesc{
+  position: absolute;
+  font-size: 60%;
+  font-weight: bold;
+  color: white;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 20px 20px;
+  backdrop-filter: blur(10px);
+}
 #addplanbtn{
     margin: auto;
     width: 50px;
@@ -53,8 +73,8 @@ body
 }
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position:fixed; /* Stay in place */
+    z-index: 25; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -116,8 +136,21 @@ body
     text-decoration: none;
     cursor: pointer;
   }
-
-  .loaderdiv{
+.deleteBtn{
+color: darkred;
+background-color: rgba(0,0,0,0);
+border: none;
+position: absolute;
+top: 5%;
+right: 5%;
+z-index: 20;
+transition: 0.2s;
+}
+.deleteBtn:hover{
+  color: red;
+  cursor: pointer;
+}
+.loaderdiv{
     display: flex;
     height: 100%;
 }
@@ -140,4 +173,48 @@ body
     100% {
         transform: rotate(360deg);
     }
+}
+
+#parallaxdiv{
+  display: flex;
+  position: fixed;
+  width: 100%;
+}
+.parallax{
+  display: flex;
+  height: 100vh;
+  justify-content: center;    
+  position: relative;
+  pointer-events: none;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  transition: 0.45s cubic-bezier(.22,.58,.4,1.02);
+}
+.img1{
+  height: 110vh;
+  top: -2vh;
+}
+.img4{
+  height:102vh;
+}
+.img5{
+  height: 100vh;
+  bottom: -2vh;
+
+}
+.parallax h1{
+  top:6vh;
+  position: absolute;
+  line-height: 30vh;
+  color: white;
+  font-size: 12em;
+  text-align: center;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 900;
+  text-shadow: 0 5px 10px rgba(0,0,0,1);
+  pointer-events: auto;
+  user-select: none;
+}
+.parallax img{
+  position: absolute;
 }

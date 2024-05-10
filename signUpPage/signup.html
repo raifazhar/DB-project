@@ -24,7 +24,10 @@
   <video class="BGVideo" autoplay loop mute src="../assets/vidoes/SignUpBackGround.mp4"></video>
 
   <div class="container">
-    <div class="LogInForm">
+    <div id="LogInForm">
+      <div id="LogInFormBG">
+
+      </div>
       <div id="SignInForm">
         <form name="inputform" class="inputform" onsubmit="return false">
             <label for="email">Email:</label>
@@ -41,27 +44,29 @@
         </form>
       </div>
       <div id="LogInButton">
-        <p>Already Have An Account</p><br><br>
+        <p>Already Have An</p>
+        <p>Account</p><br><br>
         <button onclick="LeftClick()">Sign in</button>
       </div>
     </div>
-    <div class="SignUpForm">
+    <div id="SignUpForm">
+      <div id="SignUpFormBG">
+        
+      </div>
       <div id="SignUpFormButton">
-        <p>Dont Have An Account</p><br><br>
+        <p>Dont Have An</p>
+        <p>Account</p><br><br>
         <button onclick="RightClick()">Sign Up</button>
       </div>
       <div id="inputformdiv">
         <form name="inputform" class="inputform" onsubmit="return false">
         <label for="Name">Name</label>
-        <br>
         <input type="text" id="Name" name="Name" placeholder="Your name" required /><br />
         <p class="error name" id="error name">Name is invalid!</p>
         <label for="Email">Email</label>
-        <br>
         <input type="text" id="Email" name="Email" placeholder="someone@email.com" required /><br />
         <p class="error email" id="error email">Email is invalid!</p>
         <label for="Password">Password</label>
-        <br>
         <input type="password" id="Password" name="Password" /><br />
         <p class="error password" id="error password">Password is invalid!</p>
         <br>
