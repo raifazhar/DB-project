@@ -34,10 +34,10 @@ header p{
     border-radius: 40px;
 }
 
-.LogInForm{
+#LogInForm{
     position: relative;
-    background: rgb(252,252,252);
-    background: linear-gradient(270deg, rgba(252,252,252,.1) 0%, rgba(0,0,0,1) 100%);
+    /* background: rgb(252,252,252);
+    background: linear-gradient(270deg, rgba(252,252,252,.1) 0%, rgba(0,0,0,1) 100%); */
     margin: 1px;
     width: 50vw;
     height: 50vh;
@@ -48,10 +48,10 @@ header p{
     align-items: center;
 }
 
-.SignUpForm{
+#SignUpForm{
     position: relative;
-    background: rgb(252,252,252);
-    background: linear-gradient(90deg, rgba(252,252,252,.1) 0%, rgba(0,0,0,1) 100%);
+    /* background: rgb(252,252,252);
+    background: linear-gradient(90deg, rgba(252,252,252,.1) 0%, rgba(0,0,0,1) 100%); */
     margin: 1px;
     width: 50vw;
     height: 50vh;
@@ -62,15 +62,25 @@ header p{
     align-items: center;
 }
 
-#SignInForm,#LogInButton,#SignUpButton,#inputformdiv{
+
+
+#SignInForm,#LogInButton,#SignUpButton,#inputformdiv,#SignUpFormBG,#LogInFormBG{
     position:absolute;
+}
+
+#LogInFormBG,#SignUpFormBG{
+    width: 25vw;
+    height: 50vh;
+    border-radius:2ch;
+    z-index: -1;
+    backdrop-filter: blur(2px);
 }
 
 #LogInButton{
     border-radius:40px;
     text-align: center;
     color: aliceblue;
-    font-weight: 20px;
+    font-weight: bolder;
     font-size: 4vh;
 }
 #LogInButton button{
@@ -89,7 +99,7 @@ header p{
     border-radius:40px;
     text-align: center;
     color: aliceblue;
-    font-weight: 20px;
+    font-weight: bolder;
     font-size: 4vh;
 }
 #SignUpFormButton button{
