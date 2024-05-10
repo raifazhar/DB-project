@@ -136,8 +136,19 @@ body
     text-decoration: none;
     cursor: pointer;
   }
-
-  .loaderdiv{
+#planClose{
+color: darkred;
+position: absolute;
+top: 0;
+right: 1%;
+z-index: 20;
+transition: 0.2s;
+}
+#planClose:hover{
+  color: red;
+  cursor: pointer;
+}
+.loaderdiv{
     display: flex;
     height: 100%;
 }

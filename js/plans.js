@@ -35,11 +35,12 @@ function BuildPlans() {
       PlanCard.style.background = `url("${plan.Thumbnail}") no-repeat center center`;
       PlanCard.style.backgroundSize = "auto 100%";
     }
-    PlanCard.innerHTML = `<p class = "plan-itemID">Plan ${plan.PlanID} : ${plan.Title}</p>
+    PlanCard.innerHTML = `<span class="close" id="planClose">&times;</span><p class = "plan-itemID">Plan ${plan.PlanID} : ${plan.Title}</p>
     </br>
     <p class = "plan-itemDesc" >${plan.Description}</p>`;
     PlanCard.onclick = function () {
-      window.location.href = "../plansPage/plandetails.html?planid=" + plan.PlanID;
+      window.location.href =
+        "../plansPage/plandetails.html?planid=" + plan.PlanID;
     };
     PlansGrid.appendChild(PlanCard);
   });
