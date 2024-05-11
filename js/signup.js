@@ -1,7 +1,6 @@
+
 let forminputs = document.querySelectorAll(".inputform input");
-let url;
-url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
+
 function validateForm() {
   let errors = document.getElementsByClassName("error");
   for (let i = 0; i < errors.length; i++) {

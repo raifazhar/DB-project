@@ -3,8 +3,7 @@ const id = pageurl.searchParams.get("planid");
 if (!Number.isInteger(parseInt(id))) {
   window.location.href = "../homepage/homepage.html";
 }
-url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
+
 //Global Variables
 var modal = document.getElementById("modalSelect");
 var modal2 = document.getElementById("modalTime");
@@ -16,22 +15,27 @@ let saveButton = document.getElementById("savePlan");
 let scroller = document.getElementById("scroller");
 let isOwner = false;
 destinations = [];
+places = [];
 let selectedDestinationID;
 let selectedDestinationIndex;
 
 //For modal display to select destinations
 span.onclick = function () {
   modal.style.display = "none";
+  BuildPlaces();
 };
 span2.onclick = function () {
   modal2.style.display = "none";
+  BuildPlaces();
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    BuildPlaces();
   } else if (event.target == modal2) {
     modal2.style.display = "none";
+    BuildPlaces();
   }
 };
 
@@ -53,11 +57,24 @@ async function GetDestinations() {
   if (response.status == 200) {
     let responsejson = await response.json();
     destinations = responsejson;
-    BuildDestinations();
     GetPlanDetails();
   }
+  GetPlaces();
 }
 
+async function GetPlaces() {
+  let response = await fetch(url + "/api/browser", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+  });
+  if (response.status == 200) {
+    let responsejson = await response.json();
+    places = responsejson;
+    BuildPlaces();
+  }
+}
 let binarySearchDestination = function (x) {
   let start = 0,
     end = destinations.length - 1;
@@ -140,9 +157,13 @@ function AddSelectedDestinationToPlan() {
   });
   selectedDestinationID = null;
   selectedDestinationIndex = null;
+  SortPlans();
   BuildPlanDetails();
 }
 
+function SortPlans() {
+  planDetails.sort((a, b) => a.date - b.date);
+}
 //PlanDetails is an array that contains destinations and their timings
 let planDetails = [];
 function BuildPlanDetails() {
@@ -223,24 +244,38 @@ function BuildPlanDetails() {
   }
 }
 
-function BuildDestinations() {
-  let destinationlist = document.getElementById("modaldestinationlist");
+//Build the modal list to select a destination, we build it based on the user selection of the place
+function BuildDestinations(placeID) {
+  let destinationlist = document.getElementById("modallist");
   let modal2Header = document.getElementById("modalTimeHeader");
   destinationlist.innerHTML = "";
 
-  let i = 0;
   for (let i = 0; i < destinations.length; i++) {
+    if (destinations[i].PlaceID != placeID) continue;
     let li = document.createElement("li");
     li.innerHTML = destinations[i].DestinationName;
     li.onclick = function () {
       modal.style.display = "none";
       modal2.style.display = "block";
-      modal2Header.innerHTML = destinations[i].DestinationName;
+      modal2Header.innerHTML = `Visit ${destinations[i].DestinationName} on?`;
       selectedDestinationID = destinations[i].DestinationID;
       selectedDestinationIndex = i;
     };
     destinationlist.appendChild(li);
   }
 }
-
+function BuildPlaces() {
+  let modallist = document.getElementById("modallist");
+  let modallistheader = document.getElementById("modallistheader");
+  modallist.innerHTML = "";
+  for (let i = 0; i < places.length; i++) {
+    let li = document.createElement("li");
+    li.innerHTML = places[i].Name;
+    li.onclick = function () {
+      BuildDestinations(places[i].PlaceID);
+      modallistheader.innerHTML = `Where would you like to go in ${places[i].Name}?`;
+    };
+    modallist.appendChild(li);
+  }
+}
 window.addEventListener("checkUserFinished", GetDestinations);

@@ -1,19 +1,3 @@
-url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
-
-fetch(url + "/api/browser", {
-  method: "GET",
-  headers: { "Content-Type": "application/json;charset=UTF-8" },
-})
-  .then(async (response) => {
-    if (response.status == 200) {
-      reorganizebrowser(response);
-    }
-  })
-  .catch((err) => {
-    console.error("Error: ", err);
-  });
-
 const searchbutton = document.querySelector("#search");
 searchbutton.addEventListener("click", function () {
   const inputValue = document.getElementById("searchtext").value;
@@ -60,7 +44,22 @@ async function reorganizebrowser(response) {
     browsercontainer.appendChild(browserli);
   });
 }
+async function GetBrowserData() {
+  try {
+    let response = await fetch(url + "/api/browser", {
+      method: "GET",
+      headers: { "Content-Type": "application/json;charset=UTF-8" },
+    });
+    if (response.status == 200) {
+      reorganizebrowser(response);
+    }
+  } catch (err) {
+    console.error("Error: ", err);
+  }
+}
 function getpage(id) {
   console.log(id);
   window.location.href = "../placePage/place.html?id=" + id;
 }
+
+window.addEventListener("checkUserFinished", GetBrowserData);
