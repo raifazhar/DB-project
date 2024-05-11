@@ -10,7 +10,7 @@ box1div2.style.display = 'none'
 box2div1.style.display = 'none'
 
 box1.style.backgroundColor = "rgba(0,0,0,0.65)";
-box2.style.backgroundColor = "rgba(100,100,100,0.75)";
+box2.style.backgroundColor = "rgba(100,100,100,0.5)";
 
 function fadeOutAndToggle(element,fadeOut) {
     if(fadeOut){
