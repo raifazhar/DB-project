@@ -4,51 +4,72 @@ url = "https://db-project-api.vercel.app";
 url = "http://localhost:3000";
 // Get the value of a specific query parameter
 const id = urlplace.searchParams.get("id");
-fetch(url + "/api/placepage?pageid=" + 1, {
+fetch(url + "/api/placepage?pageid=" + id, {
   method: "GET",
   headers: { "Content-Type": "application/json;charset=UTF-8" },
 }).then(async (response) => {
   if (response.status == 200) {
     const responsejson = await response.json();
-    const pageId = responsejson.pageid;
-    const description = responsejson.description;
+    console.log(responsejson)
+    createdes(responsejson)
 
-    // Access picture IDs and URLs
-    // for (const pictureId in responsejson) {
-    //     if (pictureId !== 'pageid' && pictureId !== 'description')
-    //     {
-    //         const url = responsejson[pictureId];
-    //         // Use `pictureId` and `url` as needed
-    //         console.log(`Picture ID: ${pictureId}, URL: ${url}`);
-    //     }
-    // }
-
-    //document.body.style.background = `url(${responsejson[1]}) no-repeat top/cover`;
   }
 });
 
 const right = document.querySelector(".right");
 const left = document.querySelector(".left");
-const container = document.querySelectorAll(".image");
-const title=document.querySelector(".title")
+var container;
+var title
+var description
 currentIndex = 0;
 activeindex = 0;
 
-
-for (let j = 0; j < container.length; j++) {
-  container[j].addEventListener("click", function () {
-    container.forEach((element) => {
-      element.classList.remove("active");
-    });
-    container[j].classList.add("active");
-    activeindex = j;
-    if(!moveelementleft())
-    {
-      moveelementright()
-    }
-    overidebackground(container[j])
+function createdes(results)
+{
+  const wrapper=document.querySelector(".wrapper")
+  
+  results.forEach(element => {
+    var image=document.createElement("div");
+    image.classList.add("image")
+    image.innerHTML=`<img
+    src="${element.Thumbnail}"
+    alt="">
+    <h3>${element.DestinationName}</h3>
+    <p style="display:none">${element.Description}</p>`
+    wrapper.appendChild(image)
   });
+  //console.log(wrapper)
+  console.log(wrapper.firstChild)
+  const first=wrapper.firstElementChild
+  first.classList.add("active")
+
+  const info=document.querySelector(".info")
+  info.innerHTML=`<h1 class="title"></h1>
+  <div class="description">
+  <p></p>  
+  </div>`
+
+  container=document.querySelectorAll(".image")
+  title=document.querySelector(".title")
+  description=document.querySelector(".description p")
+  overidebackground(first)
+  for (let j = 0; j < container.length; j++) {
+    container[j].addEventListener("click", function () {
+      container.forEach((element) => {
+        element.classList.remove("active");
+      });
+      container[j].classList.add("active");
+      activeindex = j;
+      if(!moveelementleft())
+      {
+        moveelementright()
+      }
+      overidebackground(container[j])
+    });
+  }
 }
+
+
 right.addEventListener("click", function () {
   if (activeindex < container.length - 1) {
     container[activeindex].classList.remove("active");
@@ -69,10 +90,12 @@ left.addEventListener("click", function () {
 });
 
 function overidebackground(element) {
-  const imgChild = element.querySelector("img");
+  const imgChild = element.querySelector("img")
   const titleelement=element.querySelector("h3")
+  const descriptionelement=element.querySelector("p")
   document.body.style.background = `url(${imgChild.getAttribute("src")}) no-repeat top/cover`;
   title.textContent=titleelement.textContent;
+  description.textContent=descriptionelement.textContent
 }
 const wrapper=document.querySelector(".wrapper")
 function moveelementright() {
