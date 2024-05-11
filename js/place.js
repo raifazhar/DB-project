@@ -42,28 +42,30 @@ for (let j = 0; j < container.length; j++) {
     });
     container[j].classList.add("active");
     activeindex = j;
-    moveelementleft()
-    moveelementright()
+    if(!moveelementleft())
+    {
+      moveelementright()
+    }
     overidebackground(container[j])
   });
 }
 right.addEventListener("click", function () {
-  moveelementright();
   if (activeindex < container.length - 1) {
     container[activeindex].classList.remove("active");
     activeindex++;
     container[activeindex].classList.add("active");
     overidebackground(container[activeindex]);
   }
+  moveelementright();
 });
 left.addEventListener("click", function () {
-  moveelementleft();
   if (activeindex >= 1) {
     container[activeindex].classList.remove("active");
     activeindex--;
     container[activeindex].classList.add("active");
     overidebackground(container[activeindex]);
   }
+  moveelementleft();
 });
 
 function overidebackground(element) {
@@ -74,30 +76,30 @@ function overidebackground(element) {
 }
 const wrapper=document.querySelector(".wrapper")
 function moveelementright() {
-  console.log("current index is "+ currentIndex)
-  console.log("active index is "+ activeindex)
-  if (currentIndex < container.length - 4 && activeindex - currentIndex >= 1) {
-    // container[currentIndex].classList.remove("visible");
 
-    // currentIndex++;
-    // container[currentIndex + 3].classList.add("visible");
+  if (currentIndex <= container.length - 4 && activeindex - currentIndex >= 2) {
     const img=container[currentIndex].querySelector("img")
     currentIndex++;
     const targetScrollLeft=img.width+2*window.innerWidth / 100+4+wrapper.scrollLeft
     handleScrollEnd(targetScrollLeft)
+    return true
   }
+  return false
   
 }
 function moveelementleft() {
-  if (currentIndex >= 1 && activeindex - currentIndex <=1) {
-    // container[currentIndex + 3].classList.remove("visible");
-    // currentIndex--;
-    // container[currentIndex].classList.add("visible");
+
+  enter=0
+  for (;currentIndex >= 1 && activeindex - currentIndex <2;) {
+    enter=1
     const img=container[currentIndex].querySelector("img")
     currentIndex--;
     const targetScrollLeft=-img.width-2*window.innerWidth / 100-4+wrapper.scrollLeft
     handleScrollEnd(targetScrollLeft)
-  }  
+    return true
+
+  }
+  return false
 }
 
 function handleScrollEnd(targetScrollLeft) {
@@ -114,7 +116,6 @@ function handleScrollEnd(targetScrollLeft) {
   // Remove the event listener once scrolling is done
   wrapper.addEventListener("scroll",()=>{
     isScrolling = false; // Reset the scrolling flag
-    console.log("Scrolling completed!");
     
   })
   

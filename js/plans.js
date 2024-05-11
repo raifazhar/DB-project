@@ -35,9 +35,27 @@ function BuildPlans() {
       PlanCard.style.background = `url("${plan.Thumbnail}") no-repeat center center`;
       PlanCard.style.backgroundSize = "auto 100%";
     }
-    PlanCard.innerHTML = `<p class = "plan-itemID">Plan ${plan.PlanID} : ${plan.Title}</p>
-    </br>
-    <p class = "plan-itemDesc" >${plan.Description}</p>`;
+    let closebutton = document.createElement("button");
+    closebutton.className = "deleteBtn";
+    closebutton.onclick = function (event) {
+      deletePlan(plan.PlanID);
+      event.stopPropagation();
+    };
+    let icon = document.createElement("i");
+    icon.className = "fa fa-trash";
+    closebutton.appendChild(icon);
+    PlanCard.appendChild(closebutton);
+
+    let planID = document.createElement("p");
+    planID.className = "plan-itemID";
+    planID.innerHTML = `Plan ${plan.PlanID} : ${plan.Title}`;
+    PlanCard.appendChild(planID);
+
+    let planDesc = document.createElement("p");
+    planDesc.className = "plan-itemDesc";
+    planDesc.innerHTML = plan.Description;
+    PlanCard.appendChild(planDesc);
+
     PlanCard.onclick = function () {
       window.location.href = "../plansPage/plandetails.html?planid=" + plan.PlanID;
     };
@@ -48,6 +66,26 @@ function BuildPlans() {
   AddBtn.id = "addplanbtn";
   PlansGrid.appendChild(AddBtn);
   InitializeButton();
+}
+
+let deletingPlans = [];
+async function deletePlan(planID) {
+  if (deletingPlans.includes(planID)) {
+    return;
+  }
+  deletingPlans.push(planID);
+  data = {
+    planID: planID,
+  };
+  let response = await fetch(url + "/api/userplans", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+      "x-auth-token": localStorage.getItem("token"),
+    },
+    body: JSON.stringify(data),
+  });
+  GetPlans();
 }
 //Get Plans and build plansgrid. Disable plansgrid while building and reenable after building
 async function GetPlans() {
