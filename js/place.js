@@ -3,55 +3,52 @@ const urlplace = new URL(window.location.href);
 
 // Get the value of a specific query parameter
 const id = urlplace.searchParams.get("id");
-fetch(url + "/api/placepage?pageid=" + id, {
-  method: "GET",
-  headers: { "Content-Type": "application/json;charset=UTF-8" },
-}).then(async (response) => {
-  if (response.status == 200) {
-    const responsejson = await response.json();
-    console.log(responsejson)
-    createdes(responsejson)
-
-  }
-});
+function GetDestinations() {
+  fetch(url + "/api/placepage?pageid=" + id, {
+    method: "GET",
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
+  }).then(async (response) => {
+    if (response.status == 200) {
+      const responsejson = await response.json();
+      createdes(responsejson);
+    }
+  });
+}
 
 const right = document.querySelector(".right");
 const left = document.querySelector(".left");
 var container;
-var title
-var description
+var title;
+var description;
 currentIndex = 0;
 activeindex = 0;
 
-function createdes(results)
-{
-  const wrapper=document.querySelector(".wrapper")
-  
-  results.forEach(element => {
-    var image=document.createElement("div");
-    image.classList.add("image")
-    image.innerHTML=`<img
+function createdes(results) {
+  const wrapper = document.querySelector(".wrapper");
+
+  results.forEach((element) => {
+    var image = document.createElement("div");
+    image.classList.add("image");
+    image.innerHTML = `<img
     src="${element.Thumbnail}"
     alt="">
     <h3>${element.DestinationName}</h3>
-    <p style="display:none">${element.Description}</p>`
-    wrapper.appendChild(image)
+    <p style="display:none">${element.Description}</p>`;
+    wrapper.appendChild(image);
   });
-  //console.log(wrapper)
-  console.log(wrapper.firstChild)
-  const first=wrapper.firstElementChild
-  first.classList.add("active")
+  const first = wrapper.firstElementChild;
+  first.classList.add("active");
 
-  const info=document.querySelector(".info")
-  info.innerHTML=`<h1 class="title"></h1>
+  const info = document.querySelector(".info");
+  info.innerHTML = `<h1 class="title"></h1>
   <div class="description">
   <p></p>  
-  </div>`
+  </div>`;
 
-  container=document.querySelectorAll(".image")
-  title=document.querySelector(".title")
-  description=document.querySelector(".description p")
-  overidebackground(first)
+  container = document.querySelectorAll(".image");
+  title = document.querySelector(".title");
+  description = document.querySelector(".description p");
+  overidebackground(first);
   for (let j = 0; j < container.length; j++) {
     container[j].addEventListener("click", function () {
       container.forEach((element) => {
@@ -59,15 +56,13 @@ function createdes(results)
       });
       container[j].classList.add("active");
       activeindex = j;
-      if(!moveelementleft())
-      {
-        moveelementright()
+      if (!moveelementleft()) {
+        moveelementright();
       }
-      overidebackground(container[j])
+      overidebackground(container[j]);
     });
   }
 }
-
 
 right.addEventListener("click", function () {
   if (activeindex < container.length - 1) {
@@ -89,12 +84,12 @@ left.addEventListener("click", function () {
 });
 
 function overidebackground(element) {
-  const imgChild = element.querySelector("img")
-  const titleelement=element.querySelector("h3")
-  const descriptionelement=element.querySelector("p")
+  const imgChild = element.querySelector("img");
+  const titleelement = element.querySelector("h3");
+  const descriptionelement = element.querySelector("p");
   document.body.style.background = `url(${imgChild.getAttribute("src")}) no-repeat top/cover`;
-  title.textContent=titleelement.textContent;
-  description.textContent=descriptionelement.textContent
+  title.textContent = titleelement.textContent;
+  description.textContent = descriptionelement.textContent;
 }
 
 const wrapper = document.querySelector(".wrapper");
@@ -138,4 +133,4 @@ function handleScrollEnd(targetScrollLeft) {
   });
 }
 
-window.addEventListener("checkUserFinished", GetPlaceData);
+window.addEventListener("checkUserFinished", GetDestinations);

@@ -26,6 +26,8 @@ body{
     overflow-y: scroll;
     color: white;
     background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
     font-size: smaller;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 30px;
@@ -37,6 +39,13 @@ body{
     text-transform: uppercase;
     text-decoration: underline;
     font-family:serif;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+
 }
 /* width */
 .description::-webkit-scrollbar {
