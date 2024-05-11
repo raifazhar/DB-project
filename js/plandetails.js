@@ -1,10 +1,10 @@
+
 const pageurl = new URL(window.location.href);
 const id = pageurl.searchParams.get("planid");
 if (!Number.isInteger(parseInt(id))) {
   window.location.href = "../homepage/homepage.html";
 }
-url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
+
 //Global Variables
 var modal = document.getElementById("modalSelect");
 var modal2 = document.getElementById("modalTime");

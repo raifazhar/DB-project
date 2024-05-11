@@ -1,3 +1,4 @@
+
 let profilename = document.querySelector(".profile.name");
 let bio = document.querySelector(".profile.bio");
 let travelPrefs = document.querySelector(".profile.travelPrefs");
@@ -9,8 +10,6 @@ id = parseInt(id);
 if (!Number.isInteger(parseInt(id))) {
   window.location.href = "../homepage/homepage.html";
 }
-url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
 
 async function GetProfile() {
   try {

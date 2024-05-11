@@ -30,13 +30,13 @@
       </div>
       <div id="SignInForm">
         <form name="inputform" class="inputform" onsubmit="return false">
-            <label for="email">Email:</label>
-            <br>  
-            <input type="text" id="email" name="email" required />
-            <br />
-            <label for="password">Password:</label>
-            <br>
-            <input type="password" id="password" name="password" required />
+          <label for="email">Email:</label>
+          <br>
+          <input type="text" id="email" name="email" required />
+          <br />
+          <label for="password">Password:</label>
+          <br>
+          <input type="password" id="password" name="password" required />
           <br /><br>
           <p class="error" id="error">Invalid Credentials!</p>
           <button id="Login" onclick="validateLoginForm()">Login</button>
@@ -51,7 +51,7 @@
     </div>
     <div id="SignUpForm">
       <div id="SignUpFormBG">
-        
+
       </div>
       <div id="SignUpFormButton">
         <p>Dont Have An</p>
@@ -60,29 +60,30 @@
       </div>
       <div id="inputformdiv">
         <form name="inputform" class="inputform" onsubmit="return false">
-        <label for="Name">Name</label>
-        <input type="text" id="Name" name="Name" placeholder="Your name" required /><br />
-        <p class="error name" id="error name">Name is invalid!</p>
-        <label for="Email">Email</label>
-        <input type="text" id="Email" name="Email" placeholder="someone@email.com" required /><br />
-        <p class="error email" id="error email">Email is invalid!</p>
-        <label for="Password">Password</label>
-        <input type="password" id="Password" name="Password" /><br />
-        <p class="error password" id="error password">Password is invalid!</p>
-        <br>
-        <label for="UserType1">Type</label>
-        <input type="radio" id="UserType1" name="UserType" value="Traveler" checked />
-        <label for="UserType1">Traveler</label>
-        <label for="UserType2"></label>
-        <input type="radio" id="UserType2" name="UserType" value="Guide" />
-        <label for="UserType2">Guide</label>
-        <br />
-        <button class="createaccount" id="createaccount" onclick="validateForm()">Create Account</button>
-        <div class="loader" id="loader"></div>
-      </form>
+          <label for="Name">Name</label>
+          <input type="text" id="Name" name="Name" placeholder="Your name" required /><br />
+          <p class="error name" id="error name">Name is invalid!</p>
+          <label for="Email">Email</label>
+          <input type="text" id="Email" name="Email" placeholder="someone@email.com" required /><br />
+          <p class="error email" id="error email">Email is invalid!</p>
+          <label for="Password">Password</label>
+          <input type="password" id="Password" name="Password" /><br />
+          <p class="error password" id="error password">Password is invalid!</p>
+          <br>
+          <label for="UserType1">Type</label>
+          <input type="radio" id="UserType1" name="UserType" value="Traveler" checked />
+          <label for="UserType1">Traveler</label>
+          <label for="UserType2"></label>
+          <input type="radio" id="UserType2" name="UserType" value="Guide" />
+          <label for="UserType2">Guide</label>
+          <br />
+          <button class="createaccount" id="createaccount" onclick="validateForm()">Create Account</button>
+          <div class="loader" id="loader"></div>
+        </form>
       </div>
     </div>
   </div>
+  <script src="../js/config.js" defer></script>
   <script src="../js/signup.js"></script>
   <script src="Transition.js"></script>
 </body>

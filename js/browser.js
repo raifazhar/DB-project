@@ -1,5 +1,3 @@
-url = "https://db-project-api.vercel.app";
-url = "http://localhost:3000";
 
 fetch(url + "/api/browser", {
   method: "GET",
