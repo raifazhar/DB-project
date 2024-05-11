@@ -1,32 +1,20 @@
-
 // Get the URL of the current page
 const urlplace = new URL(window.location.href);
 
 // Get the value of a specific query parameter
 const id = urlplace.searchParams.get("id");
-fetch(url + "/api/placepage?pageid=" + 1, {
-  method: "GET",
-  headers: { "Content-Type": "application/json;charset=UTF-8" },
-}).then(async (response) => {
-  if (response.status == 200) {
-    const responsejson = await response.json();
-    const pageId = responsejson.pageid;
-    const description = responsejson.description;
-
-    // Access picture IDs and URLs
-    // for (const pictureId in responsejson) {
-    //     if (pictureId !== 'pageid' && pictureId !== 'description')
-    //     {
-    //         const url = responsejson[pictureId];
-    //         // Use `pictureId` and `url` as needed
-    //         console.log(`Picture ID: ${pictureId}, URL: ${url}`);
-    //     }
-    // }
-
-    //document.body.style.background = `url(${responsejson[1]}) no-repeat top/cover`;
-  }
-});
-
+async function GetPlaceData() {
+  fetch(url + "/api/placepage?pageid=" + 1, {
+    method: "GET",
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
+  }).then(async (response) => {
+    if (response.status == 200) {
+      const responsejson = await response.json();
+      const pageId = responsejson.pageid;
+      const description = responsejson.description;
+    }
+  });
+}
 const right = document.querySelector(".right");
 const left = document.querySelector(".left");
 const container = document.querySelectorAll(".image");
@@ -72,6 +60,7 @@ function overidebackground(element) {
   document.body.style.background = `url(${imgChild.getAttribute("src")}) no-repeat top/cover`;
   title.textContent = titleelement.textContent;
 }
+
 const wrapper = document.querySelector(".wrapper");
 function moveelementright() {
   if (currentIndex <= container.length - 4 && activeindex - currentIndex >= 2) {
@@ -112,3 +101,5 @@ function handleScrollEnd(targetScrollLeft) {
     isScrolling = false; // Reset the scrolling flag
   });
 }
+
+window.addEventListener("checkUserFinished", GetPlaceData);

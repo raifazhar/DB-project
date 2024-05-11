@@ -26,20 +26,27 @@
     <div id="modalSelect" class="modal">
         <div class="modal-content">
             <span id="closeSelect" class="close">&times;</span>
-            <ul id="modaldestinationlist">
-            </ul>
+            <div id="modallistdiv">
+                <div id="modallistheader">
+                    Which place would you like to visit?
+                </div>
+                <ul id="modallist">
+                </ul>
+            </div>
         </div>
     </div>
     <div id="modalTime" class="modal">
         <div id="modalTimecontent" class="modal-content">
             <span id="closeTime" class="close">&times;</span>
-            <div id="modalTimeHeader">
+            <div id="modalTimeDiv">
+                <div id="modalTimeHeader">
+                </div>
+                <div id="modalTimeInputdiv">
+                    <date for="dateinput">Date</date>
+                    <input type="date" id="dateinput" name="date" class="textinput" required><br>
+                </div>
+                <input id="submitbtn" onclick="AddSelectedDestinationToPlan()" type="submit" value="OK">
             </div>
-            <div id="modalTimeInputdiv">
-                <date for="dateinput">Date</date>
-                <input type="date" id="dateinput" name="date" class="textinput" required><br>
-            </div>
-            <input id="submitbtn" onclick="AddSelectedDestinationToPlan()" type="submit" value="OK">
         </div>
     </div>
     <div id="main-content">
