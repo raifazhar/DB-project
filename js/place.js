@@ -3,6 +3,8 @@ const urlplace = new URL(window.location.href);
 
 // Get the value of a specific query parameter
 const id = urlplace.searchParams.get("id");
+let destinations;
+let selectedDestinationID=0;
 function GetDestinations() {
   fetch(url + "/api/placepage?pageid=" + id, {
     method: "GET",
@@ -10,6 +12,7 @@ function GetDestinations() {
   }).then(async (response) => {
     if (response.status == 200) {
       const responsejson = await response.json();
+      destinations=responsejson;
       createdes(responsejson);
     }
   });
@@ -33,7 +36,8 @@ function createdes(results) {
     src="${element.Thumbnail}"
     alt="">
     <h3>${element.DestinationName}</h3>
-    <p style="display:none">${element.Description}</p>`;
+    <p style="display:none">${element.Description}</p>
+    <p id="destID" style="display:none;">${element.DestinationID}</p>`
     wrapper.appendChild(image);
   });
   const first = wrapper.firstElementChild;
@@ -84,12 +88,16 @@ left.addEventListener("click", function () {
 });
 
 function overidebackground(element) {
-  const imgChild = element.querySelector("img");
-  const titleelement = element.querySelector("h3");
-  const descriptionelement = element.querySelector("p");
-  document.body.style.background = `url(${imgChild.getAttribute("src")}) no-repeat top/cover`;
-  title.textContent = titleelement.textContent;
-  description.textContent = descriptionelement.textContent;
+	const imgChild = element.querySelector("img");
+	const titleelement = element.querySelector("h3");
+	const descriptionelement = element.querySelectorAll("p");
+	document.body.style.background = `url(${imgChild.getAttribute(
+		"src"
+	)}) no-repeat top/cover`;
+	title.textContent = titleelement.textContent;
+	description.textContent = descriptionelement[0].textContent;
+  selectedDestinationID = descriptionelement[1].textContent;
+    console.log(selectedDestinationID);
 }
 
 const wrapper = document.querySelector(".wrapper");
