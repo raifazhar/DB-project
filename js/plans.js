@@ -1,4 +1,3 @@
-
 plansElement = document.getElementById("plans");
 
 //Intitialize modal menu for adding plans
@@ -103,7 +102,7 @@ async function GetPlans() {
       Plans = data;
     } else if (response.status == 401) {
       localStorage.clear();
-      window.location.href = "../loginPage/login.html";
+      window.location.href = "../signUpPage/signup.html";
     }
     BuildPlans();
   } catch (err) {
@@ -146,7 +145,7 @@ function AddPlan() {
       modal.style.display = "none";
     } else if (response.status == 401) {
       localStorage.clear();
-      window.location.href = "../loginPage/login.html";
+      window.location.href = "../signUpPage/signup.html";
     } else {
       alert("Server Error");
     }
