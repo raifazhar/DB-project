@@ -5,6 +5,8 @@ const inputDiv = document.getElementById("InputDiv");
 const radios = inputDiv.querySelectorAll("input[type='radio']");
 const labels = starDiv.querySelectorAll("label");
 
+const SubmitButton = document.getElementById("ReviewSubmit");
+
 function OnAddReviewButtonClick(){
     modalDiv.style.display = "block";
 }
@@ -13,6 +15,10 @@ window.onclick = function (event) {
       modalDiv.style.display = "none";
     }
 };
+
+SubmitButton.addEventListener("click",()=>{
+    modalDiv.style.display = "none";
+});
 
 
 let checkedIndex;
@@ -33,13 +39,15 @@ starDiv.addEventListener("mouseleave", function() {
 
 function fillStars(index) {
     for (let i = 0; i <= index; i++) {
-        labels[i].classList.add("checked"); // Add class to fill stars up to the hovered star
+        labels[i].classList.remove("fa-star-o");
+        labels[i].classList.add("fa-star"); // Add class to fill stars up to the hovered star
     }
 }
 
 function resetStars() {
     labels.forEach(label => {
-        label.classList.remove("checked"); // Remove class from all stars
+        label.classList.remove("fa-star");
+        label.classList.add("fa-star-o"); // Remove class from all stars
     });
     // If a radio button is checked, fill stars up to that point
     checkedIndex = Array.from(radios).findIndex(radio => radio.checked);

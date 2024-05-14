@@ -193,8 +193,7 @@ body{
 #modal-content {
     background-color: lightgray;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 50px;
-    padding-bottom: 40vh;
+    padding: 20px;
     border-radius: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
@@ -228,15 +227,13 @@ body{
     color: orange;
 }
 
-#modal-content h3 {
-    position: absolute;
-    z-index: 4;
+#ModalFormDiv{
     margin-top: 40px;
-}
-#modal-content input[type = "text"] {
-    position: absolute;
-    z-index: 4;
-    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-    padding-bottom: 30px;
+}
+#ModalFormDiv input{
+    text-align: center;
 }
