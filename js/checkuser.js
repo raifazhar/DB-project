@@ -1,4 +1,3 @@
-
 let guestitems = document.querySelectorAll(".guest");
 let useritems = document.querySelectorAll(".user");
 let htmlelement = document.getElementsByTagName("html")[0];

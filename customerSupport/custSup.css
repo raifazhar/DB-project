@@ -1,0 +1,33 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+#specialheader {
+    border: 1px solid transparent;
+}
+
+#main-content {
+    height: 100%;
+    width: 100%;
+    padding-top: 10vh; 
+    position: absolute;
+}
+
+input {
+    border-radius: 8px;
+    border-color: gray;
+    background-color: whitesmoke;
+}
+
+#subj {
+    width: 400px;
+}
+
+#descr {
+    width: 400px;
+    height: 200px;
+}
+
+#leftrow {
+    text-align: right;
+}

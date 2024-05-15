@@ -1,9 +1,8 @@
 plansElement = document.getElementById("plans");
 
 //Intitialize modal menu for adding plans
-var modal = document.getElementById("myModal");
-var btn;
-var span = document.getElementsByClassName("close")[0];
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
 
 function InitializeButton() {
   var btn = document.getElementById("addplanbtn");
