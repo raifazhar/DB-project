@@ -178,9 +178,7 @@ window.onclick = function (event) {
 };
 
 SubmitButton.addEventListener("click",()=>{
-    console.log(rating);
-    console.log(selectedDestinationID);
-    console.log(ReviewDescription.value);
+    PostDestinationRating();
     modalDiv.style.display = "none";
 });
 
@@ -228,3 +226,43 @@ radios.forEach((radio) => {
         rating = Array.from(radios).findIndex(radio => radio.checked);
     });
 });
+
+
+function PostDestinationRating(){
+  let RatingData = {
+    rating:rating,
+    destinationID:selectedDestinationID,
+    DescriptionReview:ReviewDescription.value
+  }
+  fetch(url + "/api/review" , {
+    method: "POST",
+    headers: { "Content-Type": "application/json;charset=UTF-8",
+    "x-auth-token":localStorage.getItem("token")},
+    body:JSON.stringify(RatingData)
+  }).then(async (response) => {
+    if (response.status == 200) {
+      let message = await response.json();
+      window.alert(message.message);
+    }
+    else if(response.status == 401){
+      window.alert("Please log in Again");
+    }
+  });
+}
+
+
+function GetReviews(){
+  fetch(url + "/api/review?destinationID=" + 1 , {
+    method: "GET",
+    headers: { "Content-Type": "application/json;charset=UTF-8"},
+  }).then(async (response) => {
+    if (response.status == 200) {
+      let result = await response.json();
+      console.log(result);
+    }
+    else if(response.status == 401){
+      window.alert("Please log in Again");
+    }
+  });
+}
+
