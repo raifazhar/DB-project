@@ -40,7 +40,7 @@
       </div>
       <div id="ModalFormDiv">
         <h3>Description</h3>
-        <input type="text" placeholder="optional">
+        <input type="text" placeholder="optional" id="ReviewDescription">
         <br><br>
         <button id="ReviewSubmit">Submit</button>
       </div>
@@ -50,7 +50,7 @@
   <div class="info">
   </div>
   <button class="add-to-plan">ADD TO PLAN</button>
-  <button class="add-Review" onclick="OnAddReviewButtonClick()">ADD REVIEW</button>
+  <button class="add-Review" id="ReviewSubmit" onclick="OnAddReviewButtonClick()">ADD REVIEW</button>
   <nav class="pictureselection">
     <div class="arrow">
       <i class="left fa-solid fa-chevron-left fa-5x" style="color: white;"></i>
@@ -65,6 +65,5 @@
 </script>
 <script src="../js/config.js" defer></script>
 <script src="../js/place.js"></script>
-<script src="../js/placeReview.js"></script>
 
 </html>
