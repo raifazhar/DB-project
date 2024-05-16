@@ -26,8 +26,14 @@ input {
 #descr {
     width: 400px;
     height: 200px;
+    vertical-align: text-top;
 }
 
 #leftrow {
+    align-items: right;
+    align-self: right;
+    align-content: right;
+    vertical-align: top;
     text-align: right;
+    padding: 10px;
 }
