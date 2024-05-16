@@ -93,14 +93,16 @@
     border-radius: 20px 0px 0px 0px;
 }
 .post-content{
-    padding: 10px;
     backdrop-filter: blur(10px);
     background-color: rgba(10, 17, 59, 0.2);
     color: white;
     font-size: medium;
-
+    width: 100%;
     border-radius: 0px 0px 20px 20px;
 
+}
+.post-content-inner{
+    padding: 10px;
 }
 #postBtn{
     width: fit-content;

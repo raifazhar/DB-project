@@ -20,7 +20,18 @@ window.onclick = function (event) {
   }
 };
 
-function GetPosts() {}
+async function GetPosts() {
+  let results = await fetch(url + "/api/posts", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+  });
+  if (results.status == 200) {
+    let data = await results.json();
+    BuildPosts(data);
+  }
+}
 
 async function AddPost() {
   modal.style.display = "none";
@@ -35,11 +46,42 @@ async function AddPost() {
       "x-auth-token": localStorage.getItem("token"),
     },
     body: JSON.stringify({
-      Title: title,
-      Content: content,
+      title: title,
+      content: content,
     }),
   });
   if (results.status == 200) {
+    alert("Posted!");
     GetPosts();
+  } else if (results.status == 401) {
+    alert("Please login to add a post");
+    window.location.href = "../signUpPage/signup.html";
   }
 }
+
+async function BuildPosts(posts) {
+  let postlist = document.getElementById("posts");
+  postlist.innerHTML = "";
+  let postBtn = document.createElement("button");
+  postBtn.innerHTML = "POST";
+  postBtn.id = "postBtn";
+  postlist.append(postBtn);
+  InitializeButton();
+  posts.forEach((element) => {
+    let li = document.createElement("li");
+    let headdiv = document.createElement("div");
+    headdiv.innerHTML = `<div class="post-user">${element.UserID}</div>
+    <div class="post-title">${element.Title}</div>`;
+    headdiv.className = "post-header";
+    li.append(headdiv);
+    let p = document.createElement("p");
+    element.Content = element.Content.replace(/(?:\r\n|\r|\n)/g, `<br>`);
+    p.innerHTML = `<div class="post-content-inner">${element.Content}</div>`;
+    p.className = "post-content";
+    li.append(p);
+    li.className = "post";
+    postlist.append(li);
+  });
+}
+
+window.addEventListener("checkUserFinished", GetPosts);

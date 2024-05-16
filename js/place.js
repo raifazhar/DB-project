@@ -4,7 +4,7 @@ const urlplace = new URL(window.location.href);
 // Get the value of a specific query parameter
 const id = urlplace.searchParams.get("id");
 let destinations;
-let selectedDestinationID=0;
+let selectedDestinationID = 0;
 function GetDestinations() {
   fetch(url + "/api/placepage?pageid=" + id, {
     method: "GET",
@@ -12,7 +12,7 @@ function GetDestinations() {
   }).then(async (response) => {
     if (response.status == 200) {
       const responsejson = await response.json();
-      destinations=responsejson;
+      destinations = responsejson;
       createdes(responsejson);
     }
   });
@@ -37,7 +37,7 @@ function createdes(results) {
     alt="">
     <h3>${element.DestinationName}</h3>
     <p style="display:none">${element.Description}</p>
-    <p id="destID" style="display:none;">${element.DestinationID}</p>`
+    <p id="destID" style="display:none;">${element.DestinationID}</p>`;
     wrapper.appendChild(image);
   });
   const first = wrapper.firstElementChild;
@@ -88,14 +88,14 @@ left.addEventListener("click", function () {
 });
 
 function overidebackground(element) {
-	const imgChild = element.querySelector("img");
-	const titleelement = element.querySelector("h3");
-	const descriptionelement = element.querySelectorAll("p");
-	document.body.style.background = `url(${imgChild.getAttribute(
-		"src"
-	)}) no-repeat top/cover`;
-	title.textContent = titleelement.textContent;
-	description.textContent = descriptionelement[0].textContent;
+  const imgChild = element.querySelector("img");
+  const titleelement = element.querySelector("h3");
+  const descriptionelement = element.querySelectorAll("p");
+  document.body.style.background = `url(${imgChild.getAttribute(
+    "src"
+  )}) no-repeat top/cover`;
+  title.textContent = titleelement.textContent;
+  description.textContent = descriptionelement[0].textContent;
   selectedDestinationID = descriptionelement[1].textContent;
 
   //change the ReviewText and rating
@@ -103,8 +103,8 @@ function overidebackground(element) {
   rating = -1;
   checkedIndex = -1;
   //reset the radio buttons
-  
-  radios.forEach(radio => {
+
+  radios.forEach((radio) => {
     radio.checked = false;
   });
 
@@ -116,7 +116,8 @@ function moveelementright() {
   if (currentIndex <= container.length - 4 && activeindex - currentIndex >= 2) {
     const img = container[currentIndex].querySelector("img");
     currentIndex++;
-    const targetScrollLeft = img.width + (2 * window.innerWidth) / 100 + 4 + wrapper.scrollLeft;
+    const targetScrollLeft =
+      img.width + (2 * window.innerWidth) / 100 + 4 + wrapper.scrollLeft;
     handleScrollEnd(targetScrollLeft);
     return true;
   }
@@ -128,7 +129,8 @@ function moveelementleft() {
     enter = 1;
     const img = container[currentIndex].querySelector("img");
     currentIndex--;
-    const targetScrollLeft = -img.width - (2 * window.innerWidth) / 100 - 4 + wrapper.scrollLeft;
+    const targetScrollLeft =
+      -img.width - (2 * window.innerWidth) / 100 - 4 + wrapper.scrollLeft;
     handleScrollEnd(targetScrollLeft);
     return true;
   }
@@ -152,9 +154,6 @@ function handleScrollEnd(targetScrollLeft) {
   });
 }
 
-window.addEventListener("checkUserFinished", GetDestinations);
-
-
 //Review Stuff
 
 var modalDiv = document.getElementById("myModal");
@@ -167,91 +166,91 @@ const labels = starDiv.querySelectorAll("label");
 const SubmitButton = document.getElementById("ReviewSubmit");
 const ReviewDescription = document.getElementById("ReviewDescription");
 
-function OnAddReviewButtonClick(){
+function OnAddReviewButtonClick() {
   modalDiv.style.display = "block";
 }
 
-SubmitButton.addEventListener("click",()=>{
-    PostDestinationRating();
-    modalDiv.style.display = "none";
+SubmitButton.addEventListener("click", () => {
+  PostDestinationRating();
+  modalDiv.style.display = "none";
 });
-
 
 let checkedIndex;
 let rating = -1;
 
 radios.forEach((radio, index) => {
-    radio.addEventListener("mouseover", function() {
-        resetStars(); // Reset stars class
-        fillStars(index); // Fill stars up to hovered star
-    });
+  radio.addEventListener("mouseover", function () {
+    resetStars(); // Reset stars class
+    fillStars(index); // Fill stars up to hovered star
+  });
 });
 
-inputDiv.addEventListener("mouseleave", function() {
-    resetStars(); // Reset stars class when mouse leaves the star area
+inputDiv.addEventListener("mouseleave", function () {
+  resetStars(); // Reset stars class when mouse leaves the star area
 });
-starDiv.addEventListener("mouseleave", function() {
-    resetStars(); // Reset stars class when mouse leaves the star area
+starDiv.addEventListener("mouseleave", function () {
+  resetStars(); // Reset stars class when mouse leaves the star area
 });
 
 function fillStars(index) {
-    for (let i = 0; i <= index; i++) {
-        labels[i].classList.remove("fa-star-o");
-        labels[i].classList.add("fa-star"); // Add class to fill stars up to the hovered star
-    }
+  for (let i = 0; i <= index; i++) {
+    labels[i].classList.remove("fa-star-o");
+    labels[i].classList.add("fa-star"); // Add class to fill stars up to the hovered star
+  }
 }
 
 function resetStars() {
-    labels.forEach(label => {
-        label.classList.remove("fa-star");
-        label.classList.add("fa-star-o"); // Remove class from all stars
-    });
-    // If a radio button is checked, fill stars up to that point
-    checkedIndex = Array.from(radios).findIndex(radio => radio.checked);
-    if (checkedIndex !== -1) {
-        fillStars(checkedIndex);
-    }
+  labels.forEach((label) => {
+    label.classList.remove("fa-star");
+    label.classList.add("fa-star-o"); // Remove class from all stars
+  });
+  // If a radio button is checked, fill stars up to that point
+  checkedIndex = Array.from(radios).findIndex((radio) => radio.checked);
+  if (checkedIndex !== -1) {
+    fillStars(checkedIndex);
+  }
 }
 
 //checkedIndex is correct but the calue is not updated the moment we want to get it so call this function to get updated
 
 radios.forEach((radio) => {
-    radio.addEventListener("change",()=>{
-        rating = Array.from(radios).findIndex(radio => radio.checked);
-    });
+  radio.addEventListener("change", () => {
+    rating = Array.from(radios).findIndex((radio) => radio.checked);
+  });
 });
 
-
-function PostDestinationRating(){
+function PostDestinationRating() {
   let RatingData = {
-    rating:rating+1,
-    destinationID:selectedDestinationID,
-    DescriptionReview:ReviewDescription.value
-  }
-  fetch(url + "/api/review" , {
+    rating: rating + 1,
+    destinationID: selectedDestinationID,
+    DescriptionReview: ReviewDescription.value,
+  };
+  fetch(url + "/api/review", {
     method: "POST",
-    headers: { "Content-Type": "application/json;charset=UTF-8",
-    "x-auth-token":localStorage.getItem("token")},
-    body:JSON.stringify(RatingData)
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+      "x-auth-token": localStorage.getItem("token"),
+    },
+    body: JSON.stringify(RatingData),
   }).then(async (response) => {
     if (response.status == 200) {
       let message = await response.json();
       window.alert(message.message);
-    }
-    else if(response.status == 401){
+    } else if (response.status == 401) {
       window.alert("Please log in Again");
     }
   });
 }
 
-
 //read review stuff
 const readReviewModalDiv = document.getElementById("ReadReviewModal");
-const readReviewContentDiv = document.getElementById("read-review-modal-content");
+const readReviewContentDiv = document.getElementById(
+  "read-review-modal-content"
+);
 
 const ReadReviewButton = document.getElementById("ReviewRead");
 
-function OnReadReviewButtonClick(){
+function OnReadReviewButtonClick() {
   readReviewModalDiv.style.display = "block";
 
   GetReviews();
@@ -264,28 +263,28 @@ window.onclick = function (event) {
   }
 };
 
-function GetReviews(){
+function GetReviews() {
   readReviewContentDiv.innerHTML = ``;
 
-  fetch(url + "/api/review?destinationID=" + selectedDestinationID , {
+  fetch(url + "/api/review?destinationID=" + selectedDestinationID, {
     method: "GET",
-    headers: { "Content-Type": "application/json;charset=UTF-8"},
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
   }).then(async (response) => {
     if (response.status == 200) {
       let result = await response.json();
-      for(i = 0;i<result.length;i++){
+      for (i = 0; i < result.length; i++) {
         readReviewContentDiv.innerHTML += `
         <div class = "ReadReviewUsersRatings">
           <h3>${result[i].name}</h3>
           <p>${result[i].Rating}/5</p>
           <p>${result[i].ReviewText}</p>
         </div>
-        `
+        `;
       }
-    }
-    else if(response.status == 401){
+    } else if (response.status == 401) {
       window.alert("Please log in Again");
     }
   });
 }
 
+window.addEventListener("checkUserFinished", GetDestinations);

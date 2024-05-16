@@ -28,7 +28,7 @@
             <a href="../browser/browser.html">browse</a>
           </li>
           <li>
-            <a href="#">reviews</a>
+            <a href="../postsPage/posts.html">posts</a>
           </li>
           <li>
             <a href="#">support</a>
@@ -66,7 +66,7 @@
   <script>
     function logout() {
       localStorage.clear();
-      window.location.href = "../loginPage/login.html";
+      window.location.href = "../signUpPage/signup.html";
     }
     let profilebtn = document.getElementById("profilebtn");
     profilebtn.href = "../profile/profile.html?id=" + localStorage.getItem("id");
