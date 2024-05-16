@@ -171,12 +171,6 @@ function OnAddReviewButtonClick(){
   modalDiv.style.display = "block";
 }
 
-window.onclick = function (event) {
-    if (event.target == modalDiv) {
-      modalDiv.style.display = "none";
-    }
-};
-
 SubmitButton.addEventListener("click",()=>{
     PostDestinationRating();
     modalDiv.style.display = "none";
@@ -230,7 +224,7 @@ radios.forEach((radio) => {
 
 function PostDestinationRating(){
   let RatingData = {
-    rating:rating,
+    rating:rating+1,
     destinationID:selectedDestinationID,
     DescriptionReview:ReviewDescription.value
   }
@@ -251,14 +245,43 @@ function PostDestinationRating(){
 }
 
 
+//read review stuff
+const readReviewModalDiv = document.getElementById("ReadReviewModal");
+const readReviewContentDiv = document.getElementById("read-review-modal-content");
+
+const ReadReviewButton = document.getElementById("ReviewRead");
+
+function OnReadReviewButtonClick(){
+  readReviewModalDiv.style.display = "block";
+
+  GetReviews();
+}
+
+window.onclick = function (event) {
+  if (event.target == readReviewModalDiv || event.target == modalDiv) {
+    readReviewModalDiv.style.display = "none";
+    modalDiv.style.display = "none";
+  }
+};
+
 function GetReviews(){
-  fetch(url + "/api/review?destinationID=" + 1 , {
+  readReviewContentDiv.innerHTML = ``;
+
+  fetch(url + "/api/review?destinationID=" + selectedDestinationID , {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8"},
   }).then(async (response) => {
     if (response.status == 200) {
       let result = await response.json();
-      console.log(result);
+      for(i = 0;i<result.length;i++){
+        readReviewContentDiv.innerHTML += `
+        <div class = "ReadReviewUsersRatings">
+          <h3>${result[i].name}</h3>
+          <p>${result[i].Rating}/5</p>
+          <p>${result[i].ReviewText}</p>
+        </div>
+        `
+      }
     }
     else if(response.status == 401){
       window.alert("Please log in Again");

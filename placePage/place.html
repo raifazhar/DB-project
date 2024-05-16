@@ -45,12 +45,19 @@
         <button id="ReviewSubmit">Submit</button>
       </div>
     </div>
-</div>
+  </div>
+  <div id="ReadReviewModal" class="modal">
+    <!-- Modal content -->
+    <div id="read-review-modal-content">
+      
+    </div>
+  </div>
 
   <div class="info">
   </div>
   <button class="add-to-plan">ADD TO PLAN</button>
-  <button class="add-Review" id="ReviewSubmit" onclick="GetReviews()">ADD REVIEW</button>
+  <button class="add-Review" id="ReviewSubmit" onclick="OnAddReviewButtonClick()">ADD REVIEW</button>
+  <button class="read-Review" id="ReviewRead" onclick="OnReadReviewButtonClick()">READ REVIEW</button>
   <nav class="pictureselection">
     <div class="arrow">
       <i class="left fa-solid fa-chevron-left fa-5x" style="color: white;"></i>
