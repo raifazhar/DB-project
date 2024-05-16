@@ -70,7 +70,7 @@ async function BuildPosts(posts) {
   posts.forEach((element) => {
     let li = document.createElement("li");
     let headdiv = document.createElement("div");
-    headdiv.innerHTML = `<div class="post-user">${element.UserID}</div>
+    headdiv.innerHTML = `<div class="post-user">${element.Name}</div>
     <div class="post-title">${element.Title}</div>`;
     headdiv.className = "post-header";
     li.append(headdiv);
