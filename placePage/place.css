@@ -220,10 +220,10 @@ body{
 #modal-content {
     background-color: lightgray;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    padding: 40px;
     border-radius: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: fit-content; /* Could be more or less, depending on screen size */
     display: flex;
     justify-content: center;
 }
@@ -283,4 +283,21 @@ body{
     border-radius: 30px;
     background-color: antiquewhite;
     text-align: center;
+    margin: 5px;
+}
+
+#ReviewSubmit{
+    border-radius: 10px;
+    padding :4px;
+    font-weight: bold;
+}
+
+#ReviewSubmit:hover{
+    cursor: pointer;
+    border: 3px groove chocolate;
+}
+
+#ReviewDescription{
+    border-radius: 10px;
+    padding: 10px;
 }
