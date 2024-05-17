@@ -2,6 +2,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background-image: url(../assets/halfToneBg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+}
+
 #specialheader {
     border: 1px solid transparent;
 }
@@ -11,6 +18,7 @@
     width: 100%;
     padding-top: 10vh; 
     position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 input {
