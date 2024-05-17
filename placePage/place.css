@@ -63,37 +63,12 @@ body{
     background:rgba(255, 255, 255,0.7); 
   }
 
-.add-to-plan
-{
-    position: absolute;
-    bottom:35%;
-    left:12%;
-    width: fit-content;
-    height: 6vh;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-   border: 2px solid black;
-    border-radius: 30px; /* Adjust the border radius as needed */
-    transition: 0.3s ease;
-    font-size:70%;
-    font-weight: bold;
-}
-.add-to-plan:hover
-{
-    transform: scale(1.2);
-    transition: 0.3s ease;
-    background-color:rgba(65, 184, 235, 1);
-    color: white;
-    cursor: pointer;
-}
 
 .add-Review
 {
     position: absolute;
     bottom:35%;
-    left:23%;
+    left:13%;
     width: fit-content;
     height: 6vh;
     background: rgba(255, 255, 255, 0.7);
@@ -119,7 +94,7 @@ body{
 {
     position: absolute;
     bottom:35%;
-    left:34%;
+    left:24%;
     width: fit-content;
     height: 6vh;
     background: rgba(255, 255, 255, 0.7);
