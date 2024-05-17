@@ -19,6 +19,15 @@ input {
     background-color: whitesmoke;
 }
 
+#oldHeader {
+    position:fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+}
+
 #subj {
     width: 400px;
 }
@@ -26,7 +35,8 @@ input {
 #descr {
     width: 400px;
     height: 200px;
-    vertical-align: text-top;
+    border-width: 2px;
+    border-radius: 8px;
 }
 
 #leftrow {
@@ -36,4 +46,21 @@ input {
     vertical-align: top;
     text-align: right;
     padding: 10px;
+}
+
+#subBtn {
+    padding: 5px;
+    background-color: rgb(180, 255, 180);
+    border-radius: 8px;
+}
+
+#reset {
+    padding: 5px;
+    background-color: rgb(255, 180, 180)
+}
+
+#formButtons {
+    display: flex;
+    width: fit-content;
+    margin: 0% 0% 0% auto; 
 }
